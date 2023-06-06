@@ -14,6 +14,7 @@
   "dependencies": {
     "@coreui/icons": "^3.0.1",
     "@coreui/icons-vue": "^2.0.0",
+    "@types/vue-select": "^3.16.2",
     "pinia": "^2.0.36",
     "vee-validate": "^4.9.6",
     "vue": "^3.3.2",
