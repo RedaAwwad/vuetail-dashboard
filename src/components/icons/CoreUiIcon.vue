@@ -5,7 +5,6 @@
 
     defineProps({
         icon: {
-            type: Array,
             default: () => cilList
         },
         width: {

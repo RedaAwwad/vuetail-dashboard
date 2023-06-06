@@ -1,12 +1,14 @@
 import { createI18n } from "vue-i18n";
-import ar from './lang/ar.json'
-import en from './lang/en.json'
+import en from './locales/en.json'
+import ar from './locales/ar.json'
+
+// type MessageSchema = typeof en
 
 const i18n = createI18n({
     legacy: false,
     locale: "en",
     globalInjection: true,
-    messages: { ar, en },
+    messages: { en, ar },
 });
 
 export default i18n;
