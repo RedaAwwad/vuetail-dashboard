@@ -3,10 +3,10 @@ import en from './locales/en.json';
 import ar from './locales/ar.json';
 
 const i18n = createI18n({
-  legacy: false,
-  locale: 'en',
-  globalInjection: true,
-  messages: { en, ar },
+    legacy: false,
+    locale: 'en',
+    globalInjection: true,
+    messages: { en, ar },
 });
 
 export default i18n;

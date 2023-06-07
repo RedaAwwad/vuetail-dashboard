@@ -2,10 +2,10 @@
 import { cilList, cilLockUnlocked, cilLockLocked, cilChevronBottom, cilCheckAlt, cilCircle } from '@coreui/icons';
 
 export const iconsSet = {
-  cilList,
-  cilLockUnlocked,
-  cilLockLocked,
-  cilChevronBottom,
-  cilCheckAlt,
-  cilCircle,
+    cilList,
+    cilLockUnlocked,
+    cilLockLocked,
+    cilChevronBottom,
+    cilCheckAlt,
+    cilCircle,
 };
