@@ -5,8 +5,8 @@ import Card from '@/components/ui/Card.vue'
 import Form from '@/components/form/Form.vue'
 import Input from '@/components/form/partials/Input.vue'
 import Select from '@/components/form/partials/Select.vue'
-import * as yup from 'yup';
 import countries from "@/data/countries";
+import registerFormValidation from '@/validations/registerFormValidation'
 
 const isSubmitting = ref<boolean>(false)
 const form = ref({
@@ -16,13 +16,6 @@ const form = ref({
     country: "",
     password: "",
     confirm_password: "",
-})
-const validationSchema = yup.object().shape({
-    first_name:  yup.string().trim().required('Enter your first name'),
-    email: yup.string().required('Enter your email').email('Enter a valid email'),
-    country: yup.string().required('Select your country'),
-    password: yup.string().trim().required('Password is mandatory').min(8).label('Password'),
-    confirm_password: yup.string().trim().required('Confirm your password').min(8).label('Confirmed Password'),
 })
 
 const submitForm = () => {
@@ -46,7 +39,7 @@ const submitForm = () => {
                 <p class="text-lg text-content">Provide us your information to create your account</p>
             </div>
             <Form @submit="submitForm" :submitting="isSubmitting"
-            :validation-schema="validationSchema">
+            :validation-schema="registerFormValidation">
                 <div class="grid sm:grid-cols-2 gap-3 mb-4">
                     <div class="sm:col-span-1">
                         <Input v-model="form.first_name" required label="First Name" name="first_name" placeholder="First Name"/>

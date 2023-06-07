@@ -14,8 +14,6 @@
   "dependencies": {
     "@coreui/icons": "^3.0.1",
     "@coreui/icons-vue": "^2.0.0",
-    "@types/i18n": "^0.13.6",
-    "@types/vue-select": "^3.16.2",
     "pinia": "^2.0.36",
     "vee-validate": "^4.9.6",
     "vue": "^3.3.2",
@@ -29,6 +27,7 @@
     "@rushstack/eslint-patch": "^1.2.0",
     "@tsconfig/node18": "^2.0.1",
     "@types/node": "^18.16.8",
+    "@types/vue-select": "^3.16.2",
     "@vitejs/plugin-vue": "^4.2.3",
     "@vue/eslint-config-prettier": "^7.1.0",
     "@vue/eslint-config-typescript": "^11.0.3",

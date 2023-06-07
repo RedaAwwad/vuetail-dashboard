@@ -5,7 +5,8 @@
     import Form from '@/components/form/Form.vue'
     import Input from '@/components/form/partials/Input.vue'
     import Checkbox from '@/components/form/partials/Checkbox.vue'
-    import * as yup from 'yup';
+    import loginFormValidation from '@/validations/loginFormValidation'
+  
 
     const isSubmitting = ref<boolean>(false)
     const rememberToLater = ref<boolean>(false)
@@ -13,11 +14,6 @@
         email: "",
         password: "",
     })
-    const validationSchema = yup.object().shape({
-        email: yup.string().required('Enter your email').email('Enter a valid email'),
-        password: yup.string().trim().required('Password is mandatory').min(8).label('Password'),
-    })
-
 
     const submitForm = () => {
         console.log('clicked!!');
@@ -40,7 +36,7 @@
                 <p class="text-lg text-content">Provide us your credentials to access the dashboard</p>
             </div>
             <Form @submit="submitForm" :submitting="isSubmitting"
-            :validation-schema="validationSchema">
+            :validation-schema="loginFormValidation">
                 <div class="mb-4">
                     <Input v-model="form.email" required label="Email Address" name="email" type="email" placeholder="Email Address"/>
                 </div>

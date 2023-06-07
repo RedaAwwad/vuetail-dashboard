@@ -10,7 +10,7 @@
 * [Setup](#setup)
 
 ## General info
-This project is a dashboard for multipurpose usage I developed using vue3, vite, typescript and tailwindcss.
+This project is a dashboard for multipurpose usage I developed using vue3, vite, typescript, tailwindcss and more.
 
 ### [Demo]()
 
@@ -31,6 +31,8 @@ Project is created with:
 - Develop lots of common use UI components using tailwindcss.
 
 ## Plugins
+- [Vee Validate v4](https://vee-validate.logaretm.com/v4/)
+- [Yup](https://github.com/jquense/yup) as a schema builder for validation with vee-validate
 - [I18n](https://vue-i18n.intlify.dev/)
 - [Vue3 perfect scrollbar](https://github.com/mercs600/vue3-perfect-scrollbar)
 

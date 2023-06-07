@@ -1,5 +1,6 @@
 <script setup lang="ts">
     import { ref, watch, onMounted } from "vue";
+    import type { PropType } from "vue";
     import { Field, ErrorMessage } from 'vee-validate';
     import CIcon from '@/components/icons/CoreUiIcon.vue'
     import { cilChevronBottom } from "@coreui/icons";
@@ -12,7 +13,7 @@
             default: ""
         },
         items: {
-            type: Array,
+            type: Array as PropType<object[]>,
             default: () => ([])
         },
         label: {
@@ -53,6 +54,8 @@
 
     const selectedOption = ref<string|number|null>(null)
 
+    const reduceOptions = (option: object) => option[props.itemValue as keyof object]
+
     watch(selectedOption, (selected) => {
         emit('update:modelValue', selected)
     })
@@ -78,7 +81,7 @@
             <v-select v-model="selectedOption" v-bind="field" :options="items" 
             :label="itemText" :loading="loading" :placeholder="placeholder" 
             :value="modelValue" :multiple="multiple" 
-            :reduce="option => option[itemValue]">
+            :reduce="reduceOptions">
                 <template #open-indicator="{ attributes }">
                     <span v-bind="attributes">
                         <CIcon :icon="cilChevronBottom"  />

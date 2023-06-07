@@ -3,14 +3,11 @@ import { ref } from "vue";
 import Card from '@/components/ui/Card.vue'
 import Form from '@/components/form/Form.vue'
 import Input from '@/components/form/partials/Input.vue'
-import * as yup from 'yup';
+import forgotPassFormValidation from "@/validations/forgotPassFormValidation";
 
 const isSubmitting = ref<boolean>(false)
 const form = ref({
     email: "",
-})
-const validationSchema = yup.object().shape({
-    email: yup.string().required('Enter your email').email('Enter a valid email'),
 })
 
 const submitForm = () => {
@@ -31,7 +28,7 @@ const submitForm = () => {
                 <p class="text-lg text-content">Enter your email address to reset your password</p>
             </div>
             <Form @submit="submitForm" :submitting="isSubmitting"
-            :validation-schema="validationSchema">
+            :validation-schema="forgotPassFormValidation">
                 <div class="mb-4">
                     <Input v-model="form.email" required label="Email Address" name="email" type="email" placeholder="Email Address"/>
                 </div>

@@ -6,5 +6,5 @@ interface I18nOptions {
 }
 
 declare module 'vue-i18n' {
-    export function createI18n(options: I18nOptions) { }
+    export function createI18n(options: I18nOptions)
 }
