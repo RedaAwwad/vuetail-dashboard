@@ -12,7 +12,7 @@
 ## General info
 This project is a dashboard for multipurpose usage I developed using vue3, vite, typescript, tailwindcss and more.
 
-### [Demo]()
+### [Demo](https://vuetail-dashboard.vercel.app/)
 
 ## Technologies
 Project is created with:
