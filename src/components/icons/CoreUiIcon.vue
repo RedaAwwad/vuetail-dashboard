@@ -1,11 +1,11 @@
 <script setup lang="ts">
     // Reference: https://coreui.io/vue/docs/components/icon.html#cicon
     import { CIcon } from '@coreui/icons-vue';
-    import { cilList } from '@coreui/icons';
 
     defineProps({
         icon: {
-            default: () => cilList
+            type: [String, Array],
+            default: () => 'cilList'
         },
         width: {
             type: String,

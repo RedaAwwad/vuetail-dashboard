@@ -2,7 +2,6 @@
     import { ref, computed } from "vue";
     import { Field, ErrorMessage } from 'vee-validate';
     import CIcon from '@/components/icons/CoreUiIcon.vue'
-    import { cilLockUnlocked, cilLockLocked } from "@coreui/icons";
 
     const isVisiblePassword = ref<boolean>(false)
     const emit = defineEmits(['update:modelValue'])
@@ -53,10 +52,10 @@
             <div v-if="type === 'password'" class="p-1 cursor-pointer"
             @click="togglePasswordVisibility">
                 <span v-if="isVisiblePassword">
-                    <CIcon :icon="cilLockLocked"  />
+                    <CIcon icon="cilLockLocked"  />
                 </span>
                 <span v-else>
-                    <CIcon :icon="cilLockUnlocked"  />
+                    <CIcon icon="cilLockUnlocked"  />
                 </span>
             </div>
         </label>
