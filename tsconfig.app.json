@@ -14,7 +14,7 @@
     "baseUrl": ".",
     "paths": {
       "@/*": [
-        "vuetail-dahboard/src/*"
+        "./src/*"
       ]
     }
   }

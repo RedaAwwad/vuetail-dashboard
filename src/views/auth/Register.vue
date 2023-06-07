@@ -38,36 +38,35 @@ const submitForm = () => {
                 <h1 class="mb-4 text-4xl font-bold">Create new account</h1>
                 <p class="text-lg text-content">Provide us your information to create your account</p>
             </div>
-            <Form @submit="submitForm" :submitting="isSubmitting"
-            :validation-schema="registerFormValidation">
+            <Form @submit="submitForm" :submitting="isSubmitting" :validation-schema="registerFormValidation">
                 <div class="grid sm:grid-cols-2 gap-3 mb-4">
                     <div class="sm:col-span-1">
-                        <Input v-model="form.first_name" required label="First Name" name="first_name" placeholder="First Name"/>
+                        <Input v-model="form.first_name" required label="First Name" name="first_name"
+                            placeholder="First Name" />
                     </div>
                     <div class="sm:col-span-1">
-                        <Input v-model="form.last_name" label="Last Name" name="last_name" placeholder="Last Name"/>
+                        <Input v-model="form.last_name" label="Last Name" name="last_name" placeholder="Last Name" />
                     </div>
                 </div>
                 <div class="mb-4">
-                    <Input v-model="form.email" required label="Email Address" name="email" type="email" placeholder="Email Address"/>
+                    <Input v-model="form.email" required label="Email Address" name="email" type="email"
+                        placeholder="Email Address" />
                 </div>
                 <div class="mb-4">
-                    <Select v-model="form.country" :items="countries"
-                    required label="Country" name="country">
-
-                    </Select>
+                    <Select v-model="form.country" :items="countries" required label="Country" name="country" />
                 </div>
                 <div class="mb-4">
-                    <Input v-model="form.password" required label="Password" name="password" type="password" placeholder="Password"/>
+                    <Input v-model="form.password" required label="Password" name="password" type="password"
+                        placeholder="Password" />
                 </div>
                 <div class="mb-6">
-                    <Input v-model="form.confirm_password" required label="Confirm Password" name="confirm_password" type="password" placeholder="Password"/>
+                    <Input v-model="form.confirm_password" required label="Confirm Password" name="confirm_password"
+                        type="password" placeholder="Password" />
                 </div>
             </Form>
             <div class="flex items-center gap-1 pt-4">
                 <span>You have an account?</span>
-                <RouterLink :to="{name: 'auth.login'}" 
-                class="py-1 text-sm text-primary hover:text-blue-500">
+                <RouterLink :to="{ name: 'auth.login' }" class="py-1 text-sm text-primary hover:text-blue-500">
                     Login
                 </RouterLink>
             </div>

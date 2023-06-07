@@ -27,16 +27,15 @@ const submitForm = () => {
                 <h1 class="mb-4 text-4xl font-bold">Forgot Password</h1>
                 <p class="text-lg text-content">Enter your email address to reset your password</p>
             </div>
-            <Form @submit="submitForm" :submitting="isSubmitting"
-            :validation-schema="forgotPassFormValidation">
+            <Form @submit="submitForm" :submitting="isSubmitting" :validation-schema="forgotPassFormValidation">
                 <div class="mb-4">
-                    <Input v-model="form.email" required label="Email Address" name="email" type="email" placeholder="Email Address"/>
+                    <Input v-model="form.email" required label="Email Address" name="email" type="email"
+                        placeholder="Email Address" />
                 </div>
             </Form>
             <div class="flex items-center gap-1 pt-4">
                 <span>Remember your password?</span>
-                <RouterLink :to="{name: 'auth.login'}" 
-                class="py-1 text-sm text-primary hover:text-blue-500">
+                <RouterLink :to="{ name: 'auth.login' }" class="py-1 text-sm text-primary hover:text-blue-500">
                     Login
                 </RouterLink>
             </div>
