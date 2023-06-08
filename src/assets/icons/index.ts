@@ -12,6 +12,15 @@ import {
     cibLinkedin,
     cibWhatsapp,
     cibFacebook,
+    cilUser,
+    cilChartPie,
+    cilColumns,
+    cilApps,
+    cilAccountLogout,
+    cilCart,
+    cilClone,
+    cilEnvelopeClosed,
+    cilCalendar,
 } from '@coreui/icons';
 
 export const iconsSet = {
@@ -27,4 +36,13 @@ export const iconsSet = {
     cibLinkedin,
     cibWhatsapp,
     cibFacebook,
+    cilUser,
+    cilChartPie,
+    cilColumns,
+    cilApps,
+    cilAccountLogout,
+    cilCart,
+    cilClone,
+    cilEnvelopeClosed,
+    cilCalendar,
 };

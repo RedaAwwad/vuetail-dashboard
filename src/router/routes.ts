@@ -7,10 +7,11 @@ const ForgotPasswordPage = () => import('@/views/auth/ForgotPassword.vue');
 // Dashboard Views
 const DashboardLayout = () => import('@/layouts/dashboard/DashboardLayout.vue');
 const DashboardIndexPage = () => import('@/views/dashboard/index.vue');
-const DashboardPages = () => import('@/views/dashboard/pages/index.vue');
-const DashboardComponentsPage = () => import('@/views/dashboard/pages/components/index.vue');
-const DashboardUtilsPage = () => import('@/views/dashboard/pages/utils/index.vue');
-const DashboardFormsPage = () => import('@/views/dashboard/forms/index.vue');
+const DashboardPages = () => import('@/views/dashboard/components/index.vue');
+const DashboardButtonsPage = () => import('@/views/dashboard/components/buttons/index.vue');
+const DashboardUtilsPage = () => import('@/views/dashboard/components/utils/index.vue');
+const DashboardFormsPage = () => import('@/views/dashboard/components/forms/index.vue');
+const DashboardUsersPage = () => import('@/views/dashboard/users/index.vue');
 
 // General Views
 const AboutPage = () => import('@/views/About.vue');
@@ -52,26 +53,30 @@ export const routes = [
                 component: DashboardIndexPage,
             },
             {
-                path: '/pages',
-                name: 'dashboard.pages',
+                path: 'dashboard/components',
                 component: DashboardPages,
                 children: [
                     {
-                        path: '/pages',
-                        name: 'dashboard.components',
-                        component: DashboardComponentsPage,
+                        path: '/dashboard/components',
+                        name: 'components.buttons',
+                        component: DashboardButtonsPage,
                     },
                     {
-                        path: '/pages/utils',
-                        name: 'dashboard.utils',
+                        path: '/dashboard/components/utils',
+                        name: 'components.utils',
                         component: DashboardUtilsPage,
+                    },
+                    {
+                        path: '/dashboard/components/forms',
+                        name: 'components.forms',
+                        component: DashboardFormsPage,
                     },
                 ],
             },
             {
-                path: '/forms',
-                name: 'dashboard.forms',
-                component: DashboardFormsPage,
+                path: '/dashboard/users',
+                name: 'dashboard.users',
+                component: DashboardUsersPage,
             },
         ],
     },

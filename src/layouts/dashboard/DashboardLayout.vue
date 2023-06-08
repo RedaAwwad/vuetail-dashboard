@@ -9,10 +9,10 @@
 <template>
     <div class="flex">
         <Sidebar />
-        <div class="w-full h-screen overflow-y-auto">
+        <div class="w-full h-screen flex flex-col justify-between overflow-y-auto">
             <TopHeader />
 
-            <main>
+            <main class="h-full">
                 <Container>
                     <RouterView />
                 </Container>
