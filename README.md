@@ -15,7 +15,7 @@ This project is a dashboard for multipurpose usage I developed using vue3, vite,
 ### [Demo](https://vuetail-dashboard.vercel.app/)
 
 ## Technologies
-This Project was created by:
+This Project was created by using:
 - [Vue3](https://vuejs.org/)
 - [Vite](https://vitejs.dev/)
 - [TypeScript](https://www.typescriptlang.org/)
