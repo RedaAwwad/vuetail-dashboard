@@ -28,7 +28,7 @@ Project is created with:
 - Using dependency injection design pattern for API backend services endpoints.
 - Using [Pinia](https://pinia.vuejs.org/) for state management.
 - Multi language support using [I18n](https://vue-i18n.intlify.dev/) plugin.
-- Develop lots of common use UI components using tailwindcss.
+- Added lots of common UI components using tailwindcss.
 
 ## Plugins
 - [Vee Validate v4](https://vee-validate.logaretm.com/v4/)
@@ -37,7 +37,51 @@ Project is created with:
 - [Vue3 perfect scrollbar](https://github.com/mercs600/vue3-perfect-scrollbar)
 
 ## Project Structure
-
+```bash
+├── public  
+│    └── favicon.ico                               
+├── src  
+│    ├── assets
+│    │    ├── css
+│    │    ├── icons
+│    │    ├── imgs
+│    │    └── scss                  
+│    ├── components
+│    │    ├── buttons    
+│    │    ├── form    
+│    │    ├── helpers    
+│    │    ├── icons    
+│    │    ├── modal    
+│    │    ├── table    
+│    │    ├── ui    
+│    │    └── widgets    
+│    ├── data   
+│    ├── layouts
+│    │    ├── auth    
+│    │    └── dashboard                     
+│    ├── plugins                     
+│    ├── router                     
+│    ├── stores                     
+│    ├── types                     
+│    ├── validations                     
+│    ├── views                     
+│    ├── App.vue                     
+│    └── main.ts                     
+├── .eslintrc.cjs                    
+├── .gitignore                   
+├── .prettierrc.json
+├── env.d.ts
+├── index.html
+├── package-lock.json
+├── package.json
+├── postcss.config.ts
+├── README.md
+├── tailwind.config.ts
+├── tsconfig.app.json
+├── tsconfig.json
+├── tsconfig.node.json
+└── vite.config.ts
+```
 ## Setup
 To run this project, install it locally using npm:
 
