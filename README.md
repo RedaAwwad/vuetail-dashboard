@@ -23,12 +23,12 @@ This Project was created by using:
 - [Tailwindcss](https://tailwindcss.com/)
 
 ## Features
-- Using Vuejs v3 with typescript support.
-- Using Vue3 [Composition API](https://vuejs.org/guide/extras/composition-api-faq.html).
-- Using dependency injection design pattern for API backend services endpoints.
-- Using [Pinia](https://pinia.vuejs.org/) for state management.
+- Vuejs v3 with typescript support.
+- Vue3 [Composition API](https://vuejs.org/guide/extras/composition-api-faq.html).
+- Dependency Injection design pattern for API backend services endpoints.
+- [Pinia](https://pinia.vuejs.org/) for state management.
 - Multi language support using [I18n](https://vue-i18n.intlify.dev/) plugin.
-- Added lots of common UI components using tailwindcss.
+- Lots of common UI components using tailwindcss.
 
 ## Plugins
 - [Vee Validate v4](https://vee-validate.logaretm.com/v4/)
