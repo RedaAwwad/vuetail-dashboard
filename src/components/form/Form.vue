@@ -1,6 +1,6 @@
 <script setup lang="ts">
     import { Form } from 'vee-validate';
-    import Btn from '@/components/ui/Btn.vue';
+    import Btn from '@/components/buttons/Btn.vue';
 
     defineProps({
         submitting: {
@@ -22,6 +22,6 @@
     <Form @submit="submitForm" :validation-schema="validationSchema">
         <slot />
 
-        <Btn block :is-loading="submitting"> Submit </Btn>
+        <Btn block lg :is-loading="submitting"> Submit </Btn>
     </Form>
 </template>

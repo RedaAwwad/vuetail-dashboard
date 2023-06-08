@@ -30,13 +30,13 @@
 
 <template>
     <div class="min-h-screen flex justify-center items-center py-4">
-        <Card class="w-[580px] py-8 max-w-full rounded-lg border shadow-lg">
+        <Card class="w-[580px] py-8 sm:px-8 max-w-full rounded-lg border dark:border-none shadow-lg">
             <div class="mb-16 text-center">
                 <div class="flex justify-center mb-6">
                     <img width="280" class="w-[225px] sm:w-[280px]" src="@/assets/imgs/logo.png" alt="logo" />
                 </div>
-                <h1 class="mb-4 text-4xl font-bold">Create new account</h1>
-                <p class="text-lg text-content">Provide us your information to create your account</p>
+                <h1 class="mb-4 text-4xl font-bold dark:text-white">Create new account</h1>
+                <p class="text-lg">Provide us your information to create your account</p>
             </div>
             <Form @submit="submitForm" :submitting="isSubmitting" :validation-schema="registerFormValidation">
                 <div class="grid sm:grid-cols-2 gap-3 mb-4">

@@ -41,11 +41,11 @@
             :required="required"
         />
         <span
-            class="w-5 h-5 flex justify-center items-center border relative peer-checked:bg-primary peer-checked:border-primary"
+            class="w-5 h-5 flex justify-center items-center border dark:border-gray-600 relative peer-checked:bg-primary peer-checked:border-primary"
             :class="[type === 'checkbox' ? 'rounded' : 'rounded-full']"
         >
-            <CIcon v-if="type === 'checkbox'" icon="cilCheckAlt" color="white" />
-            <CIcon v-else icon="cilCircle" color="white" />
+            <CIcon v-if="type === 'checkbox'" icon="cilCheckAlt" class="text-white dark:text-gray-800" />
+            <CIcon v-else icon="cilCircle" class="text-white dark:text-gray-800" />
         </span>
         <span class="whitespace-nowrap">{{ label }}</span>
     </label>

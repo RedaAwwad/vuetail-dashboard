@@ -22,10 +22,10 @@
 
 <template>
     <div class="min-h-screen flex justify-center items-center">
-        <Card class="w-[580px] py-8 xl:py-16 max-w-full rounded-lg border shadow-lg">
+        <Card class="w-[580px] py-8 sm:px-8 xl:py-16 max-w-full rounded-lg border dark:border-none shadow-lg">
             <div class="mb-16 text-center">
-                <h1 class="mb-4 text-4xl font-bold">Forgot Password</h1>
-                <p class="text-lg text-content">Enter your email address to reset your password</p>
+                <h1 class="mb-4 text-4xl font-bold dark:text-white">Forgot Password</h1>
+                <p class="text-lg">Enter your email address to reset your password</p>
             </div>
             <Form @submit="submitForm" :submitting="isSubmitting" :validation-schema="forgotPassFormValidation">
                 <div class="mb-4">

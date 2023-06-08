@@ -1,10 +1,13 @@
 <script setup lang="ts">
+    import type { PropType } from 'vue';
     // Reference: https://coreui.io/vue/docs/components/icon.html#cicon
     import { CIcon } from '@coreui/icons-vue';
 
     defineProps({
         icon: {
+            type: [String, Array] as PropType<string | string[]>,
             default: () => 'cilList',
+            required: true,
         },
         width: {
             type: String,
@@ -18,5 +21,5 @@
 </script>
 
 <template>
-    <CIcon :icon="icon" :width="width" :height="height" custom-class-name="icon" />
+    <CIcon :icon="icon" :width="width" :height="height" custom-class-name="icon text-inherit fill-current" />
 </template>

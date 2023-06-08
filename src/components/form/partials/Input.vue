@@ -64,7 +64,7 @@
             :name="name"
             @input="emit('update:modelValue')"
             :value="modelValue"
-            class="w-full p-3 mb-1 border rounded"
+            class="w-full p-3 mb-1 border dark:border-gray-900 dark:bg-slate-900 rounded"
         />
 
         <ErrorMessage :name="name" class="text-xs text-red-400" />

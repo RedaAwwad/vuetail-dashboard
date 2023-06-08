@@ -4,7 +4,7 @@
         padding: 0 0 4px;
         border-radius: var(--vs-border-radius);
 
-        @apply border-gray-200;
+        @apply border-gray-200 dark:border-gray-900 dark:bg-slate-900 rounded;
     }
 
     .vs__dropdown-option--highlight {
@@ -12,6 +12,8 @@
     }
 
     .vs__dropdown-menu {
+        @apply dark:bg-slate-900;
+
         &::-webkit-scrollbar {
             width: 5px;
         }
@@ -23,5 +25,9 @@
         &::-webkit-scrollbar-thumb {
             @apply bg-primary;
         }
+    }
+
+    .vs__selected {
+        color: inherit;
     }
 }

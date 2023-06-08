@@ -26,13 +26,13 @@
 
 <template>
     <div class="min-h-screen flex justify-center items-center py-4">
-        <Card class="w-[580px] py-8 max-w-full rounded-lg border shadow-lg">
+        <Card class="w-[580px] py-8 sm:px-8 max-w-full rounded-lg border dark:border-none shadow-lg">
             <div class="mb-16 text-center">
                 <div class="flex justify-center mb-6">
                     <img width="280" class="w-[225px] sm:w-[280px]" src="@/assets/imgs/logo.png" alt="logo" />
                 </div>
-                <h1 class="mb-4 text-4xl font-bold">Login to your account</h1>
-                <p class="text-lg text-content">Provide us your credentials to access the dashboard</p>
+                <h1 class="mb-4 text-4xl font-bold dark:text-white">Login to your account</h1>
+                <p class="text-lg">Provide us your credentials to access the dashboard</p>
             </div>
             <Form @submit="submitForm" :submitting="isSubmitting" :validation-schema="loginFormValidation">
                 <div class="mb-4">
