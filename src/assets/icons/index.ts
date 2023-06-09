@@ -21,7 +21,8 @@ import {
     cilClone,
     cilEnvelopeClosed,
     cilCalendar,
-    cilCircle,
+    cilHamburgerMenu,
+    cilHome,
 } from '@coreui/icons';
 
 export const iconsSet = {
@@ -46,5 +47,6 @@ export const iconsSet = {
     cilClone,
     cilEnvelopeClosed,
     cilCalendar,
-    cilCircle,
+    cilHamburgerMenu,
+    cilHome,
 };

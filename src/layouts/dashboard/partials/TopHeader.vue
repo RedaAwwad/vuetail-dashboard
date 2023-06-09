@@ -1,14 +1,27 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
+import { useLayoutStore } from '@/stores/layout'
+
+import BtnIcon from '@/components/buttons/BtnIcon.vue';
+import Breadcrumb from '@/components/helpers/Breadcrumb.vue'
+
+const { isMobileSidebarActive, updateMobileSidebarStatus } = useLayoutStore()
 </script>
 
 <template>
-    <nav class="bg-white border-gray-200 dark:bg-gray-900">
-        <div class="max-w-screen-xl flex flex-wrap items-center justify-between h-[75px] mx-auto p-4">
-            <div class="items-center justify-between hidden w-full md:flex md:w-auto text-sm font-semibold"
-                id="mobile-menu-language-select">
+    <nav class="bg-white border-b lg:border-none border-gray-200 dark:bg-gray-900">
+        <div class="max-w-screen-xl flex items-center justify-between h-[75px] p-4">
+            <div class="items-center justify-between w-full flex md:w-auto text-sm font-semibold">
+                <div class="flex items-center gap-2 lg:hidden">
+                    <RouterLink :to="{ name: 'dashboard' }" title="Go to the Dashboard">
+                        <img width="125" class="max-h-full" src="@/assets/imgs/logo.png" alt="logo" />
+                    </RouterLink>
+
+                    <BtnIcon @click="updateMobileSidebarStatus()" icon="cilHamburgerMenu" icon-width="1.4rem"
+                        icon-height="1.4rem" />
+                </div>
                 <ul
-                    class="flex flex-col font-medium p-4 md:p-0 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-2 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                    class="hidden lg:flex flex-col font-medium p-4 md:p-0 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-2 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                     <li>
                         <RouterLink :to="{ name: 'dashboard' }" exact
                             class="header-link block px-4 py-2 text-sm text-gray-900 dark:text-white rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
@@ -39,7 +52,8 @@ import { RouterLink } from 'vue-router'
             </div>
             <div class="flex items-center gap-x-3">
                 <div class="flex items-center">
-                    <button type="button" data-dropdown-toggle="language-dropdown-menu"
+                    <!-- langauage dropdown -->
+                    <button type="button"
                         class="inline-flex items-center font-medium justify-center px-4 py-2 text-sm text-gray-900 dark:text-white rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
                         <svg class="w-5 h-5 mr-2 rounded-full" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                             xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 3900 3900">
@@ -69,7 +83,7 @@ import { RouterLink } from 'vue-router'
                                 <use xlink:href="#e" x="2470" />
                             </g>
                         </svg>
-                        English (US)
+                        <span class="hidden sm:inline-block whitespace-nowrap">English (US)</span>
                     </button>
                     <!-- Dropdown -->
                     <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700"
@@ -162,35 +176,10 @@ import { RouterLink } from 'vue-router'
                             </li>
                         </ul>
                     </div>
-                    <button data-collapse-toggle="mobile-menu-2" type="button"
-                        class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-                        aria-controls="mobile-menu-2" aria-expanded="false">
-                        <span class="sr-only">Open main menu</span>
-                        <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                                clip-rule="evenodd"></path>
-                        </svg>
-                    </button>
-                    <button data-collapse-toggle="mobile-menu-language-select" type="button"
-                        class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-                        aria-controls="mobile-menu-language-select" aria-expanded="false">
-                        <span class="sr-only">Open main menu</span>
-                        <svg class="w-6 h-6" fill="currentColor" aria-hidden="true" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                                clip-rule="evenodd"></path>
-                        </svg>
-                    </button>
                 </div>
-                <div class="flex items-center">
+                <div class="flex items-center w-8">
                     <button type="button"
-                        class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
-                        id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown"
-                        data-dropdown-placement="bottom">
-                        <span class="sr-only">Open user menu</span>
+                        class="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600">
                         <img class="w-8 h-8 rounded-full"
                             src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80"
                             alt="user photo">
@@ -222,19 +211,14 @@ import { RouterLink } from 'vue-router'
                             </li>
                         </ul>
                     </div>
-                    <button data-collapse-toggle="mobile-menu-2" type="button"
-                        class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-                        aria-controls="mobile-menu-2" aria-expanded="false">
-                        <span class="sr-only">Open main menu</span>
-                        <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                                clip-rule="evenodd"></path>
-                        </svg>
-                    </button>
                 </div>
             </div>
+        </div>
+    </nav>
+    <nav class="lg:hidden bg-white border-gray-200 dark:bg-gray-900">
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto px-4 py-2">
+            <Breadcrumb />
+            <BtnIcon icon="cilHamburgerMenu" icon-width="1.4rem" icon-height="1.4rem" />
         </div>
     </nav>
 </template>

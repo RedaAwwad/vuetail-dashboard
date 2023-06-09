@@ -1,8 +1,11 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { RouterLink, useRoute } from 'vue-router';
+import { useLayoutStore } from '@/stores/layout'
 import type { SidebarRoute } from '@/types/sidebar'
 import CIcon from '@/components/icons/CoreUiIcon.vue';
+
+const layoutStore = useLayoutStore()
 
 const dashboardRoutes = ref<SidebarRoute[]>([
     {
@@ -15,7 +18,7 @@ const dashboardRoutes = ref<SidebarRoute[]>([
         children: [],
     },
     {
-        path: '',
+        path: '/dashboard/components',
         name: 'components.buttons',
         label: 'Components',
         icon: 'cilColumns',
@@ -23,29 +26,29 @@ const dashboardRoutes = ref<SidebarRoute[]>([
         active: false,
         children: [
             {
-                path: '/components/buttons',
+                path: '/dashboard/components/buttons',
                 name: 'components.buttons',
                 label: 'Buttons',
             },
             {
-                path: '/components/forms',
+                path: '/dashboard/components/forms',
                 name: 'components.forms',
                 label: 'Forms',
             },
             {
-                path: '/components/forms',
+                path: '/dashboard/components/forms',
                 name: 'components.forms',
                 label: 'Modals',
             },
             {
-                path: '/components/utils',
+                path: '/dashboard/components/utils',
                 name: 'components.utils',
                 label: 'Utils',
             },
         ],
     },
     {
-        path: '',
+        path: '/dashboard/kanban',
         name: 'about',
         label: 'Kanban',
         icon: 'cilClone',
@@ -54,7 +57,7 @@ const dashboardRoutes = ref<SidebarRoute[]>([
         children: [],
     },
     {
-        path: '',
+        path: '/dashboard/inbox',
         name: 'about',
         label: 'Inbox',
         icon: 'cilEnvelopeClosed',
@@ -83,7 +86,7 @@ const dashboardRoutes = ref<SidebarRoute[]>([
         ],
     },
     {
-        path: '',
+        path: '/dashboard/products',
         name: 'about',
         label: 'Products',
         icon: 'cilCart',
@@ -92,7 +95,7 @@ const dashboardRoutes = ref<SidebarRoute[]>([
         children: [],
     },
     {
-        path: '',
+        path: '/dashboard/bookings',
         name: 'about',
         label: 'Bookings',
         icon: 'cilCalendar',
@@ -102,7 +105,7 @@ const dashboardRoutes = ref<SidebarRoute[]>([
     },
 ]);
 
-const logout = (): void => { };
+const closeMobileSidebar = () => layoutStore.updateMobileSidebarStatus(false)
 
 const openDropdownLinks = (targetRoute: SidebarRoute): void => {
     dashboardRoutes.value = dashboardRoutes.value.map(route => {
@@ -114,12 +117,15 @@ const openDropdownLinks = (targetRoute: SidebarRoute): void => {
 
         return route
     })
+    closeMobileSidebar()
 }
 
 const checkActiveRouteParent = (): void => {
     let currentRoutePath = useRoute().path;
 
     dashboardRoutes.value = dashboardRoutes.value.map(route => {
+        console.log(currentRoutePath, route.path);
+
         if (route.children.length && currentRoutePath.includes(route.path)) {
             route.active = true;
         }
@@ -128,14 +134,19 @@ const checkActiveRouteParent = (): void => {
     })
 }
 
-onMounted(() => {
-    checkActiveRouteParent()
-})
+
+
+const logout = (): void => { };
+
+onMounted(() => checkActiveRouteParent())
 </script>
 
 <template>
+    <div v-if="layoutStore.isMobileSidebarActive" @click="closeMobileSidebar()"
+        class="fixed inset-0 z-40 bg-black bg-opacity-20 transition-opacity duration-300"></div>
     <aside
-        class="w-[350px] h-screen flex flex-col justify-between border-r-[0.5px] border-gray-200 dark:border-gray-900 bg-white dark:bg-gray-800">
+        class="w-[275px] lg:w-[350px] h-screen flex flex-col justify-between fixed lg:relative left-0 z-50 transition-transform border-r-[0.5px] border-gray-200 dark:border-gray-900 bg-white dark:bg-gray-800"
+        :class="[layoutStore.isMobileSidebarActive ? 'translate-x-0' : '-translate-x-full lg:translate-x-0']">
         <!-- bg-white dark:bg-gray-800 -->
         <div class="h-[75px] flex items-center p-4 border-b-[0.5px] border-gray-300 dark:border-gray-600">
             <RouterLink :to="{ name: 'dashboard' }" title="Go to the Dashboard">
@@ -168,7 +179,7 @@ onMounted(() => {
                     <ul class="subroutes space-y-2 overflow-hidden transition-all duration-600 ease-in-out"
                         :class="[route.active ? 'h-auto py-2' : 'h-0']">
                         <li v-for="(subRoute, k) in route.children" :key="k">
-                            <RouterLink exact :to="{ name: subRoute.name }"
+                            <RouterLink exact :to="{ name: subRoute.name }" @click="closeMobileSidebar()"
                                 class="sidebar-link w-full flex items-center justify-between p-2 ps-10 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
                                 <div class="flex items-center">
                                     <CIcon icon="cilCircle" width="0.5rem" height="0.5rem" />
