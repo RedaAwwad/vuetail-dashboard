@@ -23,6 +23,8 @@ import {
     cilCalendar,
     cilHamburgerMenu,
     cilHome,
+    cifSa,
+    cifUs,
 } from '@coreui/icons';
 
 export const iconsSet = {
@@ -49,4 +51,6 @@ export const iconsSet = {
     cilCalendar,
     cilHamburgerMenu,
     cilHome,
+    cifSa,
+    cifUs,
 };
