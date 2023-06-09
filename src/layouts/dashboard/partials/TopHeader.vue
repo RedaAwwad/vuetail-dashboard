@@ -16,20 +16,24 @@ import { RouterLink } from 'vue-router'
                         </RouterLink>
                     </li>
                     <li>
-                        <a href="#"
-                            class="block px-4 py-2 text-sm text-gray-900 dark:text-white rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">About</a>
+                        <RouterLink to="#"
+                            class="block px-4 py-2 text-sm text-gray-900 dark:text-white rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
+                            About</RouterLink>
                     </li>
                     <li>
-                        <a href="#"
-                            class="block px-4 py-2 text-sm text-gray-900 dark:text-white rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">Services</a>
+                        <RouterLink to="#"
+                            class="block px-4 py-2 text-sm text-gray-900 dark:text-white rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
+                            Services</RouterLink>
                     </li>
                     <li>
-                        <a href="#"
-                            class="block px-4 py-2 text-sm text-gray-900 dark:text-white rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">Pricing</a>
+                        <RouterLink to="#"
+                            class="block px-4 py-2 text-sm text-gray-900 dark:text-white rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
+                            Pricing</RouterLink>
                     </li>
                     <li>
-                        <a href="#"
-                            class="block px-4 py-2 text-sm text-gray-900 dark:text-white rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">Contact</a>
+                        <RouterLink to="#"
+                            class="block px-4 py-2 text-sm text-gray-900 dark:text-white rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
+                            Contact</RouterLink>
                     </li>
                 </ul>
             </div>
@@ -232,5 +236,4 @@ import { RouterLink } from 'vue-router'
                 </div>
             </div>
         </div>
-    </nav>
-</template>
+</nav></template>
