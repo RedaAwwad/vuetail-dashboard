@@ -16,7 +16,7 @@ import { RouterLink } from 'vue-router'
                         </RouterLink>
                     </li>
                     <li>
-                        <RouterLink to="#"
+                        <RouterLink :to="{ name: 'about' }"
                             class="block px-4 py-2 text-sm text-gray-900 dark:text-white rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
                             About</RouterLink>
                     </li>
@@ -236,4 +236,5 @@ import { RouterLink } from 'vue-router'
                 </div>
             </div>
         </div>
-</nav></template>
+    </nav>
+</template>
