@@ -10,29 +10,29 @@ import { RouterLink } from 'vue-router'
                 <ul
                     class="flex flex-col font-medium p-4 md:p-0 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-2 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                     <li>
-                        <RouterLink :to="{ name: 'dashboard' }"
-                            class="block px-4 py-2 text-sm text-gray-900 dark:text-white rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
+                        <RouterLink :to="{ name: 'dashboard' }" exact
+                            class="header-link block px-4 py-2 text-sm text-gray-900 dark:text-white rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
                             Dashboard
                         </RouterLink>
                     </li>
                     <li>
-                        <RouterLink :to="{ name: 'about' }"
-                            class="block px-4 py-2 text-sm text-gray-900 dark:text-white rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
+                        <RouterLink :to="{ name: 'about' }" exact
+                            class="header-link block px-4 py-2 text-sm text-gray-900 dark:text-white rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
                             About</RouterLink>
                     </li>
                     <li>
-                        <RouterLink to="#"
-                            class="block px-4 py-2 text-sm text-gray-900 dark:text-white rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
+                        <RouterLink :to="{ name: 'about' }" exact
+                            class="header-link block px-4 py-2 text-sm text-gray-900 dark:text-white rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
                             Services</RouterLink>
                     </li>
                     <li>
-                        <RouterLink to="#"
-                            class="block px-4 py-2 text-sm text-gray-900 dark:text-white rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
+                        <RouterLink :to="{ name: 'about' }" exact
+                            class="header-link block px-4 py-2 text-sm text-gray-900 dark:text-white rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
                             Pricing</RouterLink>
                     </li>
                     <li>
-                        <RouterLink to="#"
-                            class="block px-4 py-2 text-sm text-gray-900 dark:text-white rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
+                        <RouterLink :to="{ name: 'about' }" exact
+                            class="header-link block px-4 py-2 text-sm text-gray-900 dark:text-white rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
                             Contact</RouterLink>
                     </li>
                 </ul>
