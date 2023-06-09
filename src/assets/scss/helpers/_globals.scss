@@ -6,7 +6,7 @@
 
     &.router-link-exact-active {
         @apply bg-gray-100 text-primary bg-opacity-70 dark:bg-slate-900;
-    
+
         .subroutes {
             @apply block;
         }

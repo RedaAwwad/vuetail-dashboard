@@ -6,11 +6,11 @@ export const useLayoutStore = defineStore('layout', () => {
 
     const updateMobileSidebarStatus = (status?: boolean) => {
         if (typeof status === 'boolean') {
-            return isMobileSidebarActive.value = status
+            return (isMobileSidebarActive.value = status);
         }
 
-        isMobileSidebarActive.value = !isMobileSidebarActive.value
-    }
+        isMobileSidebarActive.value = !isMobileSidebarActive.value;
+    };
 
     return {
         isMobileSidebarActive,
