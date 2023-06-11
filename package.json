@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "vite",
+    "dev": "run-s type-check dev-only",
+    "dev-only": "vite",
     "build": "run-p type-check build-only",
     "preview": "vite preview",
     "build-only": "vite build",
@@ -16,6 +17,7 @@
     "@coreui/icons-vue": "^2.0.0",
     "@intlify/unplugin-vue-i18n": "^0.11.0",
     "@vueuse/core": "^10.1.2",
+    "axios": "^1.4.0",
     "pinia": "^2.0.36",
     "vee-validate": "^4.9.6",
     "vue": "^3.3.2",

@@ -1,0 +1,29 @@
+{
+    "workbench.iconTheme": "material-icon-theme",
+    "terminal.integrated.defaultProfile.windows": "Git Bash",
+    "workbench.colorTheme": "Material Theme Darker High Contrast",
+    "editor.wordWrap": "on",
+    "window.zoomLevel": 1,
+    "editor.formatOnSave": true,
+    "css.format.newlineBetweenRules": false,
+    "scss.format.maxPreserveNewLines": 0,
+    "scss.format.enable": false,
+    "css.format.enable": false,
+    "volar.format.initialIndent": {
+        "javascript": true,
+        "typescript": true,
+        "html": true
+    },
+    "html.format.indentHandlebars": true,
+    "html.format.indentInnerHtml": true,
+    "html.format.extraLiners": "",
+    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": true,
+    "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
+    "javascript.format.semicolons": "insert",
+    "typescript.format.insertSpaceAfterConstructor": true,
+    "typescript.format.semicolons": "insert",
+    "html.format.wrapLineLength": 115,
+    "html.format.wrapAttributes": "force-expand-multiline",
+    "javascript.format.insertSpaceAfterConstructor": true,
+    "html.format.unformatted": ""
+}

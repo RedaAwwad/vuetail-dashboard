@@ -1,16 +1,9 @@
-export interface I18nOptions {
+interface I18nOptions {
     legacy: boolean;
     locale: string;
     fallbackLocale: string;
     globalInjection: boolean;
     messages: object;
-}
-
-export interface Language {
-    id: number;
-    name: string;
-    code: string;
-    flag: string;
 }
 
 declare module 'vue-i18n' {

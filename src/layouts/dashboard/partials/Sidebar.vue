@@ -123,8 +123,6 @@
         let currentRoutePath = useRoute().path;
 
         dashboardRoutes.value = dashboardRoutes.value.map((route) => {
-            console.log(currentRoutePath, route.path);
-
             if (route.children.length && currentRoutePath.includes(route.path)) {
                 route.active = true;
             }

@@ -4,6 +4,7 @@
     import { Field, ErrorMessage } from 'vee-validate';
     import vSelect from 'vue-select';
     import 'vue-select/dist/vue-select.css';
+    import type { DropdownMenuItem } from '@/types/ui-components';
 
     const props = defineProps({
         modelValue: {
@@ -11,7 +12,7 @@
             default: '',
         },
         items: {
-            type: Array as PropType<object[]>,
+            type: Array as PropType<DropdownMenuItem[]>,
             default: () => [],
         },
         label: {
