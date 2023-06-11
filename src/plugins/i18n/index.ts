@@ -4,7 +4,7 @@ import ar from './locales/ar.json';
 import axios from 'axios';
 
 // default app locale & layout direction
-const locale: string = 'ar';
+const locale: string = 'en';
 const direction: string = locale === 'ar' ? 'rtl' : 'ltr';
 
 const i18n = createI18n({
