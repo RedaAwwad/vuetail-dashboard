@@ -4,3 +4,7 @@ export interface IconProp {
     height?: string;
     order?: number;
 }
+
+export interface DropdownMenuItem extends Record<string, string> {
+    id?: number | string;
+}

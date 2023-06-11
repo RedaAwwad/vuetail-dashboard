@@ -1,8 +1,9 @@
 <script setup lang="ts">
+    import { computed } from 'vue';
     import { RouterLink } from 'vue-router';
     import { useLayoutStore } from '@/stores/layout';
-    import type { Language } from '@/types/vue-i18n';
     import { useI18n } from 'vue-i18n';
+    import type { I18nLocale } from '@/types';
 
     import BtnIcon from '@/components/buttons/BtnIcon.vue';
     import Breadcrumb from '@/components/helpers/Breadcrumb.vue';
@@ -12,7 +13,7 @@
     const { updateMobileSidebarStatus } = useLayoutStore();
     const { locale } = useI18n();
 
-    const languages: Language[] = [
+    const languages: I18nLocale[] = [
         {
             id: 1,
             name: 'Arabic (SA)',
@@ -27,18 +28,30 @@
         },
     ];
 
-    const updateAppLanguage = (lang: Language) => {};
+    const selectedLang = computed(() => {
+        let lang = languages.find((lang) => lang.code === locale.value);
+        return lang ? lang : languages[1];
+    });
+
+    const updateAppLanguage = (lang: I18nLocale) => { };
 </script>
 
 <template>
     <nav
-        class="bg-white border-b lg:border-none border-gray-200 dark:border-gray-600 dark:bg-gray-800 dark:text-white"
-    >
+        class="bg-white border-b lg:border-none border-gray-200 dark:border-gray-600 dark:bg-gray-800 dark:text-white">
         <div class="max-w-screen-xl flex items-center justify-between h-[75px] p-4">
             <div class="items-center justify-between w-full flex md:w-auto text-sm font-semibold">
                 <div class="flex items-center gap-2 lg:hidden">
-                    <RouterLink :to="{ name: 'dashboard' }" title="Go to the Dashboard">
-                        <img width="125" class="max-h-full" src="@/assets/imgs/logo.png" alt="logo" />
+                    <RouterLink
+                        :to="{ name: 'dashboard' }"
+                        title="Go to the Dashboard"
+                    >
+                        <img
+                            width="125"
+                            class="max-h-full"
+                            src="@/assets/imgs/logo.png"
+                            alt="logo"
+                        />
                     </RouterLink>
 
                     <BtnIcon
@@ -49,8 +62,7 @@
                     />
                 </div>
                 <ul
-                    class="hidden lg:flex flex-col font-medium p-4 md:p-0 border border-gray-100 rounded-lg md:flex-row md:space-x-2 md:mt-0 md:border-0"
-                >
+                    class="hidden lg:flex flex-col font-medium p-4 md:p-0 border border-gray-100 rounded-lg md:flex-row md:space-x-2 md:mt-0 md:border-0">
                     <li>
                         <RouterLink
                             :to="{ name: 'dashboard' }"
@@ -66,8 +78,7 @@
                             exact
                             class="header-link block px-4 py-2 text-sm text-gray-900 dark:text-white rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"
                         >
-                            About</RouterLink
-                        >
+                            About</RouterLink>
                     </li>
                     <li>
                         <RouterLink
@@ -75,8 +86,7 @@
                             exact
                             class="header-link block px-4 py-2 text-sm text-gray-900 dark:text-white rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"
                         >
-                            Services</RouterLink
-                        >
+                            Services</RouterLink>
                     </li>
                     <li>
                         <RouterLink
@@ -84,8 +94,7 @@
                             exact
                             class="header-link block px-4 py-2 text-sm text-gray-900 dark:text-white rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"
                         >
-                            Pricing</RouterLink
-                        >
+                            Pricing</RouterLink>
                     </li>
                     <li>
                         <RouterLink
@@ -93,65 +102,40 @@
                             exact
                             class="header-link block px-4 py-2 text-sm text-gray-900 dark:text-white rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"
                         >
-                            Contact</RouterLink
-                        >
+                            Contact</RouterLink>
                     </li>
                 </ul>
             </div>
             <div class="flex items-center gap-x-3">
                 <DropdownMenu>
                     <template #control>
-                        <svg
-                            class="w-5 h-5 me-2 rounded-full"
-                            aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg"
-                            xmlns:xlink="http://www.w3.org/1999/xlink"
-                            viewBox="0 0 3900 3900"
-                        >
-                            <path fill="#b22234" d="M0 0h7410v3900H0z" />
-                            <path
-                                d="M0 450h7410m0 600H0m0 600h7410m0 600H0m0 600h7410m0 600H0"
-                                stroke="#fff"
-                                stroke-width="300"
+                        <div class="flex items-center gap-x-2">
+                            <CIcon
+                                :icon="selectedLang.flag"
+                                width="1.2rem"
+                                height="1.2rem"
                             />
-                            <path fill="#3c3b6e" d="M0 0h2964v2100H0z" />
-                            <g fill="#fff">
-                                <g id="d">
-                                    <g id="c">
-                                        <g id="e">
-                                            <g id="b">
-                                                <path
-                                                    id="a"
-                                                    d="M247 90l70.534 217.082-184.66-134.164h228.253L176.466 307.082z"
-                                                />
-                                                <use xlink:href="#a" y="420" />
-                                                <use xlink:href="#a" y="840" />
-                                                <use xlink:href="#a" y="1260" />
-                                            </g>
-                                            <use xlink:href="#a" y="1680" />
-                                        </g>
-                                        <use xlink:href="#b" x="247" y="210" />
-                                    </g>
-                                    <use xlink:href="#c" x="494" />
-                                </g>
-                                <use xlink:href="#d" x="988" />
-                                <use xlink:href="#c" x="1976" />
-                                <use xlink:href="#e" x="2470" />
-                            </g>
-                        </svg>
-                        <span class="hidden sm:inline-block whitespace-nowrap">English (US)</span>
+                            <span>{{ selectedLang.name }}</span>
+                        </div>
                     </template>
-                    <ul v-esle>
-                        <li v-for="(lang, index) in languages" :key="index">
+                    <ul>
+                        <li
+                            v-for="(lang, index) in languages"
+                            :key="index"
+                        >
                             <button
                                 @click="updateAppLanguage(lang)"
-                                class="w-full flex items-center gap-x-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white"
+                                class="w-full flex items-center gap-x-2 px-4 py-2 whitespace-nowrap text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white"
                                 :class="{
                                     'bg-gray-100 text-gray-400 dark:bg-gray-600 dark:text-white':
                                         lang.code === locale,
                                 }"
                             >
-                                <CIcon :icon="lang.flag" width="1.2rem" height="1.2rem" />
+                                <CIcon
+                                    :icon="lang.flag"
+                                    width="1.2rem"
+                                    height="1.2rem"
+                                />
                                 <span>{{ lang.name }}</span>
                             </button>
                         </li>
@@ -175,49 +159,50 @@
                     >
                         <div class="px-4 py-3">
                             <span class="block text-sm text-gray-900 dark:text-white">Bonnie Green</span>
-                            <span class="block text-sm text-gray-500 truncate dark:text-gray-400"
-                                >name@flowbite.com</span
-                            >
+                            <span
+                                class="block text-sm text-gray-500 truncate dark:text-gray-400">name@flowbite.com</span>
                         </div>
-                        <ul class="py-2" aria-labelledby="user-menu-button">
+                        <ul
+                            class="py-2"
+                            aria-labelledby="user-menu-button"
+                        >
                             <li>
                                 <a
                                     href="#"
                                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-                                    >Dashboard</a
-                                >
+                                >Dashboard</a>
                             </li>
                             <li>
                                 <a
                                     href="#"
                                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-                                    >Settings</a
-                                >
+                                >Settings</a>
                             </li>
                             <li>
                                 <a
                                     href="#"
                                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-                                    >Earnings</a
-                                >
+                                >Earnings</a>
                             </li>
                             <li>
                                 <a
                                     href="#"
                                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-                                    >Sign out</a
-                                >
+                                >Sign out</a>
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
-        </div>
-    </nav>
-    <nav class="lg:hidden bg-white border-gray-200 dark:bg-gray-900">
-        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto px-4 py-2">
-            <Breadcrumb />
-            <BtnIcon icon="cilHamburgerMenu" icon-width="1.4rem" icon-height="1.4rem" />
-        </div>
-    </nav>
-</template>
+    </div>
+</nav>
+<nav class="lg:hidden bg-white border-gray-200 dark:bg-gray-900">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto px-4 py-2">
+        <Breadcrumb />
+        <BtnIcon
+            icon="cilHamburgerMenu"
+            icon-width="1.4rem"
+            icon-height="1.4rem"
+        />
+    </div>
+</nav></template>

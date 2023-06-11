@@ -27,7 +27,7 @@
 <template>
     <ol class="inline-flex items-center space-x-1 md:space-x-2 text-sm">
         <template v-if="routes.length > 1">
-            <li v-for="(route, index) in routes" class="inline-flex items-center">
+            <li v-for="(route, index) in routes" :key="index" class="inline-flex items-center">
                 <span
                     v-if="index === routes.length - 1 || routes.length === 1"
                     class="inline-flex items-center capitalize text-sm font-medium text-primary dark:text-gray-400"
