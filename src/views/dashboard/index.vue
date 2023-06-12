@@ -10,7 +10,7 @@
 </script>
 
 <template>
-    <Modal persistent title="Accept terms and conditions" :open="isModalOpen" @close="closeModal">
+    <Modal @close="closeModal" :open="isModalOpen" persistent title="Accept terms and conditions">
         <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas rerum magni delectus accusamus optio fuga
             porro quae quia nulla quaerat in adipisci, consequatur modi praesentium recusandae nisi facilis
@@ -22,6 +22,6 @@
             explicabo minus.
         </p>
     </Modal>
-    <Btn @click="openModal">Open</Btn>
+    <Btn @click="openModal">Open Modal</Btn>
     <!-- <Skeleton></Skeleton> -->
 </template>

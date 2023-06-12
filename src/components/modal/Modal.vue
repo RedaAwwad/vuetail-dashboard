@@ -80,7 +80,7 @@
                         </div>
                     </template>
                     <!-- Modal body -->
-                    <div class="p-6 space-y-6">
+                    <div class="px-4 sm:px-6 py-4">
                         <slot />
                     </div>
                     <template #footer>

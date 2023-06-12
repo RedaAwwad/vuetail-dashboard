@@ -1,7 +1,7 @@
 import { createI18n } from 'vue-i18n';
 import en from './locales/en.json';
 import ar from './locales/ar.json';
-import axios from 'axios';
+// import axios from 'axios';
 
 // default app locale & layout direction
 const locale: string = 'en';
@@ -33,4 +33,3 @@ const setDefaultLocale = async (dir: string) => {
 setDefaultLocale(direction);
 
 export default i18n;
-
