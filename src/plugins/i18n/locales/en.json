@@ -1,5 +1,8 @@
 {
     "lang": "English",
     "dashboard": "Dashboard",
-    "aboutTheProjectHeading": "About the Project"
+    "aboutTheProjectHeading": "About the Project",
+    "cancel": "Cancel",
+    "accept": "Accept",
+    "apply": "Apply"
 }

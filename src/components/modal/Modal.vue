@@ -1,10 +1,12 @@
 <script setup lang="ts">
     import { ref } from 'vue';
     import { onClickOutside } from '@vueuse/core';
+    import { useI18n } from 'vue-i18n';
     import Card from '@/components/ui/Card.vue';
     import Btn from '@/components/buttons/Btn.vue';
     import CIcon from '@/components/icons/CoreUiIcon.vue';
 
+    const { t } = useI18n();
     const tryingToClose = ref<boolean>(false);
     const modal = ref<HTMLElement | null>(null);
 
@@ -63,7 +65,7 @@
                         </div>
                         <div
                             v-else
-                            class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600"
+                            class="w-full flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600"
                         >
                             <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
                                 {{ title }}
@@ -71,11 +73,10 @@
                             <button
                                 type="button"
                                 @click="closeModal()"
-                                class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                                class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
                                 data-modal-hide="defaultModal"
                             >
                                 <CIcon icon="cilX" />
-                                <span class="sr-only">Close modal</span>
                             </button>
                         </div>
                     </template>
@@ -90,10 +91,17 @@
                         </div>
                         <div
                             v-else
-                            class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600"
+                            class="flex items-center justify-end gap-x-2 p-6 border-t border-gray-200 rounded-b dark:border-gray-600"
                         >
-                            <Btn @click="accept()"> Accept </Btn>
-                            <Btn outline @click="closeModal()"> Cancel </Btn>
+                            <Btn @click="accept()">
+                                {{ t('accept') }}
+                            </Btn>
+                            <Btn
+                                outline
+                                @click="closeModal()"
+                            >
+                                {{ t('cancel') }}
+                            </Btn>
                         </div>
                     </template>
                 </Card>

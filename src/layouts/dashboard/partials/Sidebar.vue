@@ -131,7 +131,7 @@
         });
     };
 
-    const logout = (): void => {};
+    const logout = (): void => { };
 
     onMounted(() => checkActiveRouteParent());
 </script>
@@ -148,15 +148,26 @@
     >
         <!-- bg-white dark:bg-gray-800 -->
         <div class="h-[75px] flex items-center p-4 border-b-[0.5px] border-gray-300 dark:border-gray-600">
-            <RouterLink :to="{ name: 'dashboard' }" title="Go to the Dashboard">
-                <img width="125" class="max-h-full" src="@/assets/imgs/logo.png" alt="logo" />
+            <RouterLink
+                :to="{ name: 'dashboard' }"
+                title="Go to the Dashboard"
+            >
+                <img
+                    width="125"
+                    class="max-h-full"
+                    src="@/assets/imgs/logo.png"
+                    alt="logo"
+                />
             </RouterLink>
         </div>
 
         <!-- Start Sidebar Routes -->
         <PerfectScrollbar class="h-[calc(100vh-(75px+65px))] py-6 px-3 font-medium">
             <ul class="space-y-2">
-                <li v-for="(route, index) in dashboardRoutes" :key="index">
+                <li
+                    v-for="(route, index) in dashboardRoutes"
+                    :key="index"
+                >
                     <RouterLink
                         exact
                         :to="{ name: route.name }"
@@ -165,14 +176,17 @@
                         :class="{ 'router-link-exact-active': route.children.length && route.active }"
                     >
                         <div class="flex items-center">
-                            <CIcon :icon="route.icon" width="1.3rem" height="1.3rem" />
-                            <span class="ml-3">{{ route.label }}</span>
+                            <CIcon
+                                :icon="route.icon"
+                                width="1.3rem"
+                                height="1.3rem"
+                            />
+                            <span class="ms-3">{{ route.label }}</span>
                         </div>
                         <span
                             v-if="route.count"
                             class="inline-flex items-center justify-center h-2.5 p-3 ms-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-primary dark:text-gray-100"
-                            >{{ route.count }}</span
-                        >
+                        >{{ route.count }}</span>
                         <span
                             v-if="route.children.length"
                             class="inline-block transition-shadow"
@@ -180,8 +194,8 @@
                         >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
-                                width="0.9rem"
-                                height="0.9rem"
+                                width="0.8rem"
+                                height="0.8rem"
                                 fill="currentColor"
                                 viewBox="0 0 16 16"
                             >
@@ -196,7 +210,10 @@
                         class="subroutes space-y-2 overflow-hidden transition-all duration-600 ease-in-out"
                         :class="[route.active ? 'h-auto py-2' : 'h-0']"
                     >
-                        <li v-for="(subRoute, k) in route.children" :key="k">
+                        <li
+                            v-for="(subRoute, k) in route.children"
+                            :key="k"
+                        >
                             <RouterLink
                                 exact
                                 :to="{ name: subRoute.name }"
@@ -204,8 +221,12 @@
                                 class="sidebar-link w-full flex items-center justify-between p-2 ps-10 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
                             >
                                 <div class="flex items-center">
-                                    <CIcon icon="cilCircle" width="0.5rem" height="0.5rem" />
-                                    <span class="ml-3">{{ subRoute.label }}</span>
+                                    <CIcon
+                                        icon="cilCircle"
+                                        width="0.5rem"
+                                        height="0.5rem"
+                                    />
+                                    <span class="ms-3">{{ subRoute.label }}</span>
                                 </div>
                             </RouterLink>
                         </li>
@@ -217,8 +238,12 @@
                         class="w-full flex items-center justify-between p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
                     >
                         <div class="flex items-center">
-                            <CIcon icon="cilAccountLogout" width="1.2rem" height="1.2rem" />
-                            <span class="flex-1 ml-3 whitespace-nowrap">Logout</span>
+                            <CIcon
+                                icon="cilAccountLogout"
+                                width="1.2rem"
+                                height="1.2rem"
+                            />
+                            <span class="flex-1 ms-3 whitespace-nowrap">Logout</span>
                         </div>
                     </button>
                 </li>
@@ -227,8 +252,7 @@
         <!-- End Sidebar Routes -->
 
         <p
-            class="h-[65px] flex items-center justify-between px-4 py-2 border-t-[0.5px] border-gray-300 dark:border-gray-600 text-sm"
-        >
+            class="h-[65px] flex items-center justify-between px-4 py-2 border-t-[0.5px] border-gray-300 dark:border-gray-600 text-sm">
             <span class="dark:text-white">Vuetail &copy; 2023</span>
             <a
                 href="https://www.linkedin.com/in/redaawwad/"
