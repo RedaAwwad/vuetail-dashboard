@@ -32,7 +32,10 @@
 </script>
 
 <template>
-    <div ref="menuControl" class="relative">
+    <div
+        ref="menuControl"
+        class="relative"
+    >
         <div @click="updateMenuStatus(true)">
             <slot name="control" />
         </div>
@@ -50,7 +53,10 @@
                     <slot />
                 </div>
                 <ul v-if="menuItems && menuItems.length">
-                    <li v-for="(item, index) in menuItems" :key="index">
+                    <li
+                        v-for="(item, index) in menuItems"
+                        :key="index"
+                    >
                         <RouterLink
                             :to="item.to"
                             class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white"

@@ -14,7 +14,7 @@ html {
 
 body {
     min-height: 100vh;
-    @apply text-gray-500 dark:text-gray-400 bg-gray-200 dark:bg-slate-900;
+    @apply font-open-sans text-start text-gray-500 dark:text-gray-400 bg-gray-200 dark:bg-slate-900;
 
     &::-webkit-scrollbar {
         width: 5px;
@@ -26,5 +26,13 @@ body {
 
     &::-webkit-scrollbar-thumb {
         @apply bg-gray-400 dark:bg-slate-700;
+    }
+
+
+}
+
+html[dir="rtl"] {
+    body {
+        @apply font-el-messiri;
     }
 }

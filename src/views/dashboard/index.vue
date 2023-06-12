@@ -10,7 +10,12 @@
 </script>
 
 <template>
-    <Modal @close="closeModal" :open="isModalOpen" persistent title="Accept terms and conditions">
+    <Modal
+        @close="closeModal"
+        :open="isModalOpen"
+        persistent
+        title="Accept terms and conditions"
+    >
         <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas rerum magni delectus accusamus optio fuga
             porro quae quia nulla quaerat in adipisci, consequatur modi praesentium recusandae nisi facilis

@@ -1,9 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
-  // safelist: [
-  //   'rounded-full'
-  // ],
+  safelist: [
+    'right',
+    'left'
+  ],
   theme: {
     extend: {
       colors: {
@@ -18,11 +19,10 @@ module.exports = {
         heading: '#0f172a',
       },
       fontFamily: {
-        roboto: ['Roboto Slab', 'serif'],
-        arima: ['Arima', 'cursive', 'serif'],
+        'el-messiri': ['El Messiri', 'sans-serif'],
         'open-sans': ['Open Sans', 'sans-serif'],
       }
     },
   },
   plugins: [],
-}
+};

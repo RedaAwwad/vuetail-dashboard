@@ -1,5 +1,8 @@
 {
     "lang": "العربية",
     "dashboard": "الرئيسية",
-    "aboutTheProjectHeading": "عن المشروع"
+    "aboutTheProjectHeading": "عن المشروع",
+    "cancel": "إلغاء",
+    "accept": "موافق",
+    "apply": "تطبيق"
 }
