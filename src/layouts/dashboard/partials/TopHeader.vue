@@ -33,25 +33,18 @@
         return lang ? lang : languages[1];
     });
 
-    const updateAppLanguage = (lang: I18nLocale) => { };
+    const updateAppLanguage = (lang: I18nLocale) => {};
 </script>
 
 <template>
     <nav
-        class="bg-white border-b lg:border-none border-gray-200 dark:border-gray-600 dark:bg-gray-800 dark:text-white">
+        class="bg-white border-b lg:border-none border-gray-200 dark:border-gray-600 dark:bg-gray-800 dark:text-white"
+    >
         <div class="max-w-screen-xl flex items-center justify-between h-[75px] p-4">
             <div class="items-center justify-between w-full flex md:w-auto text-sm font-semibold">
                 <div class="flex items-center gap-2 lg:hidden">
-                    <RouterLink
-                        :to="{ name: 'dashboard' }"
-                        title="Go to the Dashboard"
-                    >
-                        <img
-                            width="125"
-                            class="max-h-full"
-                            src="@/assets/imgs/logo.png"
-                            alt="logo"
-                        />
+                    <RouterLink :to="{ name: 'dashboard' }" title="Go to the Dashboard">
+                        <img width="125" class="max-h-full" src="@/assets/imgs/logo.png" alt="logo" />
                     </RouterLink>
 
                     <BtnIcon
@@ -62,7 +55,8 @@
                     />
                 </div>
                 <ul
-                    class="hidden lg:flex flex-col font-medium p-4 md:p-0 border border-gray-100 rounded-lg md:flex-row md:space-x-2 md:mt-0 md:border-0">
+                    class="hidden lg:flex flex-col font-medium p-4 md:p-0 border border-gray-100 rounded-lg md:flex-row md:space-x-2 md:mt-0 md:border-0"
+                >
                     <li>
                         <RouterLink
                             :to="{ name: 'dashboard' }"
@@ -78,7 +72,8 @@
                             exact
                             class="header-link block px-4 py-2 text-sm text-gray-900 dark:text-white rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"
                         >
-                            About</RouterLink>
+                            About</RouterLink
+                        >
                     </li>
                     <li>
                         <RouterLink
@@ -86,7 +81,8 @@
                             exact
                             class="header-link block px-4 py-2 text-sm text-gray-900 dark:text-white rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"
                         >
-                            Services</RouterLink>
+                            Services</RouterLink
+                        >
                     </li>
                     <li>
                         <RouterLink
@@ -94,7 +90,8 @@
                             exact
                             class="header-link block px-4 py-2 text-sm text-gray-900 dark:text-white rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"
                         >
-                            Pricing</RouterLink>
+                            Pricing</RouterLink
+                        >
                     </li>
                     <li>
                         <RouterLink
@@ -102,27 +99,25 @@
                             exact
                             class="header-link block px-4 py-2 text-sm text-gray-900 dark:text-white rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"
                         >
-                            Contact</RouterLink>
+                            Contact</RouterLink
+                        >
                     </li>
                 </ul>
             </div>
             <div class="flex items-center gap-x-3">
+                <!-- Languages dropdown menu -->
                 <DropdownMenu>
                     <template #control>
-                        <div class="flex items-center gap-x-2">
-                            <CIcon
-                                :icon="selectedLang.flag"
-                                width="1.2rem"
-                                height="1.2rem"
-                            />
-                            <span>{{ selectedLang.name }}</span>
-                        </div>
+                        <button
+                            type="button"
+                            class="inline-flex items-center gap-x-2 font-medium justify-center px-4 py-2 text-sm text-gray-900 dark:text-white rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"
+                        >
+                            <CIcon :icon="selectedLang.flag" width="1.2rem" height="1.2rem" />
+                            <span class="text-xs md:text-sm whitespace-nowrap">{{ selectedLang.name }}</span>
+                        </button>
                     </template>
                     <ul>
-                        <li
-                            v-for="(lang, index) in languages"
-                            :key="index"
-                        >
+                        <li v-for="(lang, index) in languages" :key="index">
                             <button
                                 @click="updateAppLanguage(lang)"
                                 class="w-full flex items-center gap-x-2 px-4 py-2 whitespace-nowrap text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white"
@@ -131,78 +126,95 @@
                                         lang.code === locale,
                                 }"
                             >
-                                <CIcon
-                                    :icon="lang.flag"
-                                    width="1.2rem"
-                                    height="1.2rem"
-                                />
-                                <span>{{ lang.name }}</span>
+                                <CIcon :icon="lang.flag" width="1.2rem" height="1.2rem" />
+                                <span class="text-xs md:text-sm whitespace-nowrap">{{ lang.name }}</span>
                             </button>
                         </li>
                     </ul>
                 </DropdownMenu>
-                <div class="flex items-center w-8">
-                    <button
-                        type="button"
-                        class="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
-                    >
-                        <img
-                            class="w-8 h-8 rounded-full"
-                            src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80"
-                            alt="user photo"
-                        />
-                    </button>
-                    <!-- Dropdown menu -->
-                    <div
-                        class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600"
-                        id="user-dropdown"
-                    >
-                        <div class="px-4 py-3">
-                            <span class="block text-sm text-gray-900 dark:text-white">Bonnie Green</span>
-                            <span
-                                class="block text-sm text-gray-500 truncate dark:text-gray-400">name@flowbite.com</span>
-                        </div>
-                        <ul
-                            class="py-2"
-                            aria-labelledby="user-menu-button"
+
+                <!-- user profile dropdown menu -->
+                <DropdownMenu>
+                    <template #control>
+                        <button
+                            type="button"
+                            class="w-8 h-8 flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
                         >
-                            <li>
-                                <a
-                                    href="#"
-                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-                                >Dashboard</a>
-                            </li>
-                            <li>
-                                <a
-                                    href="#"
-                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-                                >Settings</a>
-                            </li>
-                            <li>
-                                <a
-                                    href="#"
-                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-                                >Earnings</a>
-                            </li>
-                            <li>
-                                <a
-                                    href="#"
-                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-                                >Sign out</a>
-                            </li>
-                        </ul>
+                            <img
+                                class="w-8 h-8 rounded-full"
+                                src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80"
+                                alt="user photo"
+                            />
+                        </button>
+                    </template>
+                    <div class="px-4 pt-3 mb-2">
+                        <span class="block text-sm text-gray-900 dark:text-white">Bonnie Green</span>
+                        <span class="block text-sm text-gray-500 truncate dark:text-gray-400"
+                            >name@flowbite.com</span
+                        >
                     </div>
-                </div>
+                    <ul class="py-2">
+                        <li>
+                            <RouterLink
+                                :to="{ name: 'dashboard' }"
+                                title="Go to the Dashboard"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                            >
+                                Dashboard
+                            </RouterLink>
+                        </li>
+                        <li>
+                            <a
+                                href="#"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                                >Settings</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                href="#"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                                >Sign out</a
+                            >
+                        </li>
+                    </ul>
+                </DropdownMenu>
             </div>
-    </div>
-</nav>
-<nav class="lg:hidden bg-white border-gray-200 dark:bg-gray-900">
-    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto px-4 py-2">
-        <Breadcrumb />
-        <BtnIcon
-            icon="cilHamburgerMenu"
-            icon-width="1.4rem"
-            icon-height="1.4rem"
-        />
-    </div>
-</nav></template>
+        </div>
+    </nav>
+    <nav class="lg:hidden bg-white border-gray-200 dark:bg-gray-900">
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto px-4 py-2">
+            <Breadcrumb />
+            <DropdownMenu min-width="min-width[200px]">
+                <template #control>
+                    <BtnIcon icon="cilHamburgerMenu" icon-width="1.4rem" icon-height="1.4rem" />
+                </template>
+                <ul class="list-none">
+                    <li>
+                        <RouterLink
+                            :to="{ name: 'dashboard' }"
+                            title="Go to the Dashboard"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                        >
+                            Dashboard
+                        </RouterLink>
+                    </li>
+                    <li>
+                        <a
+                            href="#"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                            >Settings</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="#"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                            >Sign out</a
+                        >
+                    </li>
+                </ul>
+            </DropdownMenu>
+        </div>
+    </nav>
+</template>
