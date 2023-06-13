@@ -35,6 +35,7 @@ This Project was created by using:
 - [Yup](https://github.com/jquense/yup) as a schema builder for validation with vee-validate
 - [I18n](https://vue-i18n.intlify.dev/)
 - [Vue3 perfect scrollbar](https://github.com/mercs600/vue3-perfect-scrollbar)
+- [Vueuse](https://vueuse.org/)
 
 ## Project Structure
 ```bash
@@ -54,7 +55,8 @@ This Project was created by using:
 │    │    ├── modal    
 │    │    ├── table    
 │    │    ├── ui    
-│    │    └── widgets    
+│    │    └── widgets 
+│    ├── composables   
 │    ├── data   
 │    ├── layouts
 │    │    ├── auth    
