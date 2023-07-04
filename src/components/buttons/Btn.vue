@@ -26,13 +26,13 @@
 
     const btnSizes: Record<Sizes, string> = {
         sm: `px-4 py-2 text-sm ${props.rounded ? 'rounded-full' : 'rounded'}`,
-        md: `px-6 py-2 text-base ${props.rounded ? 'rounded-full' : 'rounded-md'}`,
-        lg: `px-8 py-3 text-lg ${props.rounded ? 'rounded-full' : 'rounded-lg'}`,
+        md: `px-6 py-3 text-base ${props.rounded ? 'rounded-full' : 'rounded-md'}`,
+        lg: `px-8 py-4 text-lg ${props.rounded ? 'rounded-full' : 'rounded-lg'}`,
         base: `font-medium text-sm px-6 py-3 ${props.rounded ? 'rounded-full' : 'rounded-lg'}`
     };
 
     const btnVariants: Record<Variants, string> = {
-        none: '',
+        none: 'btn',
         primary: 'btn-primary',
         secondary: 'btn-secondary',
         neutral: 'btn-neutral',
@@ -74,7 +74,7 @@
         </div>
         <div
             v-else
-            class="h-full flex items-center gap-x-2 justify-center"
+            class="h-full flex items-center gap-x-2 justify-center capitalize"
         >
             <slot />
         </div>
@@ -104,7 +104,7 @@
         </div>
         <div
             v-else
-            class="h-full flex items-center gap-x-2 justify-center"
+            class="h-full flex items-center gap-x-2 justify-center capitalize"
         >
             <slot />
         </div>
@@ -133,7 +133,7 @@
         </div>
         <div
             v-else
-            class="h-full flex items-center gap-x-2 justify-center"
+            class="h-full flex items-center gap-x-2 justify-center capitalize"
         >
             <slot />
         </div>
