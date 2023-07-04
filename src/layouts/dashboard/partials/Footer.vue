@@ -1,7 +1,9 @@
 <script setup lang="ts">
     import { RouterLink } from 'vue-router';
+    import { useI18n } from 'vue-i18n';
 
     const currentYear = new Date().getFullYear();
+    const { t } = useI18n();
 </script>
 
 <template>
@@ -11,17 +13,36 @@
         <span>Vuetail &copy; {{ currentYear }}</span>
         <ul class="flex items-center gap-x-2">
             <li>
-                <RouterLink :to="{ name: 'about' }" class="p-1 hover:text-primary"> About </RouterLink>
+                <RouterLink
+                    :to="{ name: 'about' }"
+                    class="p-1 hover:text-primary"
+                >
+                    {{ t('about') }}
+                </RouterLink>
             </li>
             <li>
-                <RouterLink :to="{ name: 'about' }" class="p-1 hover:text-primary"> Services </RouterLink>
+                <RouterLink
+                    :to="{ name: 'about' }"
+                    class="p-1 hover:text-primary"
+                >
+                    {{ t('services') }}
+                </RouterLink>
             </li>
             <li>
-                <RouterLink :to="{ name: 'about' }" class="p-1 hover:text-primary"> Pricing </RouterLink>
+                <RouterLink
+                    :to="{ name: 'about' }"
+                    class="p-1 hover:text-primary"
+                >
+                    {{ t('pricing') }}
+                </RouterLink>
             </li>
             <li>
-                <RouterLink :to="{ name: 'about' }" class="p-1 hover:text-primary"> Contact </RouterLink>
-            </li>
-        </ul>
-    </footer>
-</template>
+            <RouterLink
+                :to="{ name: 'about' }"
+                class="p-1 hover:text-primary"
+            >
+                {{ t('contact') }}
+            </RouterLink>
+        </li>
+    </ul>
+</footer></template>

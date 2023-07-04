@@ -4,5 +4,15 @@
     "aboutTheProjectHeading": "عن المشروع",
     "cancel": "إلغاء",
     "accept": "موافق",
-    "apply": "تطبيق"
+    "apply": "تطبيق",
+    "components": "التصاميم المستخدمة",
+    "inbox": "صندوق الوارد",
+    "users": "المستخدمون",
+    "products": "المنتجات",
+    "bookings": "الحجوزات",
+    "logout": "تسجيل الخروج",
+    "about": "عنا",
+    "services": "الخدمات",
+    "pricing": "الأسعار",
+    "contact": "تواصل معنا"
 }
