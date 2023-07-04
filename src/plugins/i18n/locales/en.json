@@ -4,5 +4,15 @@
     "aboutTheProjectHeading": "About the Project",
     "cancel": "Cancel",
     "accept": "Accept",
-    "apply": "Apply"
+    "apply": "Apply",
+    "components": "Components",
+    "inbox": "Inbox",
+    "users": "Users",
+    "products": "Products",
+    "bookings": "Bookings",
+    "logout": "Logout",
+    "about": "About",
+    "services": "Services",
+    "pricing": "Pricing",
+    "contact": "Contact"
 }

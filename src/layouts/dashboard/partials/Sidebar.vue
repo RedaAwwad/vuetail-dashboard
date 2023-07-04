@@ -2,16 +2,18 @@
     import { ref, onMounted } from 'vue';
     import { RouterLink, useRoute } from 'vue-router';
     import { useLayoutStore } from '@/stores/layout';
+    import { useI18n } from 'vue-i18n';
     import type { SidebarRoute } from '@/types/sidebar';
     import CIcon from '@/components/icons/CoreUiIcon.vue';
 
     const layoutStore = useLayoutStore();
+    const { t } = useI18n();
 
     const dashboardRoutes = ref<SidebarRoute[]>([
         {
             path: '/',
             name: 'dashboard',
-            label: 'Dashboard',
+            label: t('dashboard'),
             icon: 'cilApps',
             count: 0,
             active: false,
@@ -20,7 +22,7 @@
         {
             path: '/dashboard/components',
             name: 'components.buttons',
-            label: 'Components',
+            label: t('components'),
             icon: 'cilColumns',
             count: 0,
             active: false,
@@ -59,7 +61,7 @@
         {
             path: '/dashboard/inbox',
             name: 'about',
-            label: 'Inbox',
+            label: t('inbox'),
             icon: 'cilEnvelopeClosed',
             count: 3,
             active: false,
@@ -68,7 +70,7 @@
         {
             path: '/dashboard/users',
             name: 'dashboard.users',
-            label: 'Users',
+            label: t('users'),
             icon: 'cilUser',
             count: 0,
             active: false,
@@ -88,7 +90,7 @@
         {
             path: '/dashboard/products',
             name: 'about',
-            label: 'Products',
+            label: t('products'),
             icon: 'cilCart',
             count: 0,
             active: false,
@@ -97,7 +99,7 @@
         {
             path: '/dashboard/bookings',
             name: 'about',
-            label: 'Bookings',
+            label: t('bookings'),
             icon: 'cilCalendar',
             count: 0,
             active: false,
@@ -243,7 +245,9 @@
                                 width="1.2rem"
                                 height="1.2rem"
                             />
-                            <span class="flex-1 ms-3 whitespace-nowrap">Logout</span>
+                            <span class="flex-1 ms-3 whitespace-nowrap">
+                                {{ t('logout') }}
+                            </span>
                         </div>
                     </button>
                 </li>

@@ -1,111 +1,98 @@
 <script setup lang="ts">
-    import { ref } from 'vue';
-    import { onClickOutside } from '@vueuse/core';
     import { useI18n } from 'vue-i18n';
-    import Card from '@/components/ui/Card.vue';
     import Btn from '@/components/buttons/Btn.vue';
     import CIcon from '@/components/icons/CoreUiIcon.vue';
 
     const { t } = useI18n();
-    const tryingToClose = ref<boolean>(false);
-    const modal = ref<HTMLElement | null>(null);
+    const emit = defineEmits(['accept']);
 
-    const emit = defineEmits(['close', 'accept']);
-    const props = defineProps({
-        open: {
-            type: Boolean,
-            default: false,
-        },
-        persistent: {
-            type: Boolean,
-            default: false,
-        },
-        title: {
-            type: String,
-            default: '',
-        },
+    interface ModalProps {
+        id: string;
+        open?: boolean;
+        persistent?: boolean;
+        title?: string;
+    }
+
+    withDefaults(defineProps<ModalProps>(), {
+        open: false,
+        persistent: false,
     });
-
-    const closeModal = (isPersistentCheck: boolean = false) => {
-        if (isPersistentCheck && props.persistent) {
-            tryingToClose.value = true;
-
-            setTimeout(() => {
-                tryingToClose.value = false;
-            }, 100);
-            return;
-        }
-
-        emit('close');
-    };
 
     const accept = () => {
         emit('accept');
     };
 
-    onClickOutside(modal, () => closeModal(true));
 </script>
 
 <template>
-    <Transition name="fade">
-        <div
-            v-show="open"
-            class="fixed inset-0 z-50 w-full h-full max-h-full flex justify-center items-center p-4 overflow-x-hidden overflow-y-auto bg-black bg-opacity-20"
+    <div>
+        <button
+            class="btn"
+            :onclick="`${id}.showModal()`"
+        >open modal</button>
+        <dialog
+            :id="id"
+            class="modal modal-bottom sm:modal-middle"
         >
-            <div
-                ref="modal"
-                class="relative w-full max-w-2xl max-h-full transition ease-in-out"
-                :class="{ 'scale-95': tryingToClose }"
+            <form
+                method="dialog"
+                class="modal-box bg-white dark:bg-gray-800"
             >
-                <Card>
-                    <template #header>
-                        <!-- Modal header -->
-                        <div v-if="$slots.header">
-                            <slot name="header" />
-                        </div>
-                        <div
-                            v-else
-                            class="w-full flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600"
-                        >
-                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                                {{ title }}
-                            </h3>
-                            <button
-                                type="button"
-                                @click="closeModal()"
-                                class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                                data-modal-hide="defaultModal"
-                            >
-                                <CIcon icon="cilX" />
-                            </button>
-                        </div>
-                    </template>
-                    <!-- Modal body -->
-                    <div class="px-4 sm:px-6 py-4">
-                        <slot />
+                <!-- Modal header -->
+                <div v-if="$slots.header">
+                    <slot name="header" />
+                </div>
+                <div
+                    v-else
+                    class="w-full flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600"
+                >
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                        {{ title }}
+                    </h3>
+                    <button
+                        class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                    >
+                        <CIcon icon="cilX" />
+                    </button>
+                </div>
+                <div class="p-4 lg:p-6 dark:text-white">
+                    <slot />
+                </div>
+                <div class="modal-action">
+                    <!-- Modal footer -->
+                    <div v-if="$slots.footer">
+                        <slot name="footer" />
                     </div>
-                    <template #footer>
-                        <!-- Modal footer -->
-                        <div v-if="$slots.footer">
-                            <slot name="footer" />
-                        </div>
-                        <div
-                            v-else
-                            class="flex items-center justify-end gap-x-2 p-6 border-t border-gray-200 rounded-b dark:border-gray-600"
+                    <div
+                        v-else
+                        class="w-full flex items-center gap-x-2 p-6 border-t border-gray-200 rounded-b dark:border-gray-600"
+                    >
+                        <Btn
+                            type="button"
+                            @click="accept()"
+                            class="w-32"
                         >
-                            <Btn @click="accept()">
-                                {{ t('accept') }}
-                            </Btn>
-                            <Btn
-                                outline
-                                @click="closeModal()"
-                            >
-                                {{ t('cancel') }}
-                            </Btn>
-                        </div>
-                    </template>
-                </Card>
-            </div>
-        </div>
-    </Transition>
+                            <CIcon icon="cilApps" />
+                            {{ t('accept') }}
+                        </Btn>
+                        <Btn
+                            outline
+                            variant="neutral"
+                        >
+                            {{ t('cancel') }}
+                        </Btn>
+                    </div>
+                </div>
+            </form>
+            <form
+                v-if="!persistent"
+                method="dialog"
+                class="modal-backdrop"
+            >
+                <button>close</button>
+            </form>
+
+        </dialog>
+
+    </div>
 </template>

@@ -13,7 +13,7 @@
 
     const { updateMobileSidebarStatus } = useLayoutStore();
     const { dir } = useDirection();
-    const { locale } = useI18n();
+    const { locale, t } = useI18n();
 
     const languages: I18nLocale[] = [
         {
@@ -71,7 +71,7 @@
                             exact
                             class="header-link block px-4 py-2 text-sm text-gray-900 dark:text-white rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"
                         >
-                            Dashboard
+                            {{ t('dashboard') }}
                         </RouterLink>
                     </li>
                     <li>
@@ -80,7 +80,8 @@
                             exact
                             class="header-link block px-4 py-2 text-sm text-gray-900 dark:text-white rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"
                         >
-                            About</RouterLink>
+                            {{ t('about') }}
+                        </RouterLink>
                     </li>
                     <li>
                         <RouterLink
@@ -88,7 +89,8 @@
                             exact
                             class="header-link block px-4 py-2 text-sm text-gray-900 dark:text-white rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"
                         >
-                            Services</RouterLink>
+                            {{ t('services') }}
+                        </RouterLink>
                     </li>
                     <li>
                         <RouterLink
@@ -96,7 +98,8 @@
                             exact
                             class="header-link block px-4 py-2 text-sm text-gray-900 dark:text-white rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"
                         >
-                            Pricing</RouterLink>
+                            {{ t('pricing') }}
+                        </RouterLink>
                     </li>
                     <li>
                         <RouterLink
@@ -104,7 +107,8 @@
                             exact
                             class="header-link block px-4 py-2 text-sm text-gray-900 dark:text-white rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"
                         >
-                            Contact</RouterLink>
+                            {{ t('contact') }}
+                        </RouterLink>
                     </li>
                 </ul>
             </div>

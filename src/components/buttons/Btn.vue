@@ -1,195 +1,141 @@
 <script setup lang="ts">
-    import { computed } from 'vue';
-    import type { PropType } from 'vue';
-    import type { IconProp } from '@/types/ui-components';
     import { RouterLink } from 'vue-router';
-    import CIcon from '@/components/icons/CoreUiIcon.vue';
 
-    const props = defineProps({
-        block: {
-            type: Boolean,
-            default: false,
-        },
-        to: {
-            type: String,
-        },
-        href: {
-            type: String,
-        },
-        exact: {
-            type: Boolean,
-            default: false,
-        },
-        target: {
-            type: String,
-            default: '',
-        },
-        title: {
-            type: String,
-        },
-        isLoading: {
-            type: Boolean,
-            default: false,
-        },
-        sm: {
-            type: Boolean,
-            default: false,
-        },
-        lg: {
-            type: Boolean,
-            default: false,
-        },
-        rounded: {
-            type: Boolean,
-            default: false,
-        },
-        text: {
-            type: Boolean,
-            default: false,
-        },
-        outline: {
-            type: Boolean,
-            default: false,
-        },
-        noFocus: {
-            type: Boolean,
-            default: false,
-        },
-        icon: {
-            type: Object as PropType<IconProp>,
-            default: () => ({
-                icon: '',
-                width: '1rem',
-                height: '1rem',
-                order: 1,
-            }),
-        },
+    type Variants = 'none' | 'primary' | 'secondary' | 'neutral' | 'accent' | 'ghost' | 'link';
+    type Sizes = 'base' | 'sm' | 'md' | 'lg';
+
+    interface BtnProps {
+        block?: boolean;
+        variant?: Variants;
+        size?: Sizes;
+        title?: string;
+        rounded?: boolean;
+        outline?: boolean;
+        lodading?: boolean;
+        to?: string;
+        exact?: boolean;
+        href?: string;
+        target?: string;
+        noFocus?: boolean;
+    }
+
+    const props = withDefaults(defineProps<BtnProps>(), {
+        variant: 'primary',
+        size: 'base',
     });
+
+    const btnSizes: Record<Sizes, string> = {
+        sm: `px-4 py-2 text-sm ${props.rounded ? 'rounded-full' : 'rounded'}`,
+        md: `px-6 py-2 text-base ${props.rounded ? 'rounded-full' : 'rounded-md'}`,
+        lg: `px-8 py-3 text-lg ${props.rounded ? 'rounded-full' : 'rounded-lg'}`,
+        base: `font-medium text-sm px-6 py-3 ${props.rounded ? 'rounded-full' : 'rounded-lg'}`
+    };
+
+    const btnVariants: Record<Variants, string> = {
+        none: '',
+        primary: 'btn-primary',
+        secondary: 'btn-secondary',
+        neutral: 'btn-neutral',
+        accent: 'btn-accent',
+        ghost: 'btn-ghost',
+        link: 'btn-link',
+    };
+
     const emit = defineEmits(['click']);
-
-    const btnSize = computed(() => {
-        if (props.isLoading) return 'py-3';
-        if (props.sm) return 'py-1 px-4 text-sm';
-        if (props.lg) return 'py-4 px-10';
-
-        return 'font-medium rounded-lg text-sm px-5 py-2.5';
-    });
-    const isText = computed(() => {
-        if (props.text) {
-            return 'bg-transparent text-primary shadow-none';
-        }
-
-        return '';
-    });
-    const isOutlined = computed(() => {
-        if (props.outline) {
-            return 'bg-transparent text-primary shadow-none border border-primary dark:border-gray-600';
-        }
-
-        return '';
-    });
 
     const onClickButton = () => {
         emit('click');
     };
+
 </script>
 
 <template>
-    <!-- router link -->
     <RouterLink
         v-if="to"
         :to="to"
         :exact="exact"
-        class="btn"
-        :disabled="isLoading"
+        :disabled="lodading"
+        :title="title"
         :class="[
-            btnSize,
-            isText,
-            isOutlined,
-            { 'block w-full': block, 'rounded-full': rounded, 'focus:ring-transparent': noFocus },
+            {
+                'block w-full': block,
+                'focus:ring-transparent': noFocus,
+                'btn-outline': outline
+            },
+            btnVariants[variant],
+            btnSizes[size],
         ]"
     >
-        <div v-if="isLoading" class="px-2 h-full flex items-center justify-center">
-            <div class="lds-dual-ring"></div>
+        <div
+            v-if="lodading"
+            class="px-3 h-full flex items-center justify-center"
+        >
+            <span class="loading loading-spinner loading-md"></span>
         </div>
-        <template v-else>
-            <CIcon v-if="icon && icon.icon" v-bind="icon" :style="`order: ${icon.order};`" />
-            <span :style="`order: ${icon.order && icon.order <= 1 ? 2 : 1};`">
-                <slot />
-            </span>
-        </template>
+        <div
+            v-else
+            class="h-full flex items-center gap-x-2 justify-center"
+        >
+            <slot />
+        </div>
     </RouterLink>
 
-    <!-- native a tag -->
     <a
         v-else-if="href"
         :href="href"
-        class="btn"
-        :disabled="isLoading"
+        :disabled="lodading"
         :target="target"
+        :title="title"
         :class="[
-            btnSize,
-            isText,
-            isOutlined,
-            { 'block w-full': block, 'rounded-full': rounded, 'focus:ring-transparent': noFocus },
+            {
+                'block w-full': block,
+                'focus:ring-transparent': noFocus,
+                'btn-outline': outline
+            },
+            btnVariants[variant],
+            btnSizes[size],
         ]"
     >
-        <div v-if="isLoading" class="px-2 h-full flex items-center justify-center">
-            <div class="lds-dual-ring"></div>
+        <div
+            v-if="lodading"
+            class="px-3 h-full flex items-center justify-center"
+        >
+            <span class="loading loading-spinner loading-md"></span>
         </div>
-        <template v-else>
-            <CIcon v-if="icon && icon.icon" v-bind="icon" :style="`order: ${icon.order};`" />
-            <span :style="`order: ${icon.order == 1 ? 2 : 1};`">
-                <slot />
-            </span>
-        </template>
+        <div
+            v-else
+            class="h-full flex items-center gap-x-2 justify-center"
+        >
+            <slot />
+        </div>
     </a>
 
-    <!-- native button -->
     <button
         v-else
         @click="onClickButton"
-        class="btn"
-        :disabled="isLoading"
+        :disabled="lodading"
+        :title="title"
         :class="[
-            btnSize,
-            isText,
-            isOutlined,
-            { 'block w-full': block, 'rounded-full': rounded, 'focus:ring-transparent': noFocus },
+            {
+                'block w-full': block,
+                'focus:ring-transparent': noFocus,
+                'btn-outline': outline
+            },
+            btnVariants[variant],
+            btnSizes[size],
         ]"
     >
-        <div v-if="isLoading" class="px-2 h-full flex items-center justify-center">
-            <div class="lds-dual-ring"></div>
+        <div
+            v-if="lodading"
+            class="px-3 h-full flex items-center justify-center"
+        >
+            <span class="loading loading-spinner loading-md"></span>
         </div>
-        <template v-else>
-            <CIcon v-if="icon && icon.icon" v-bind="icon" :style="`order: ${icon.order};`" />
-            <span :style="`order: ${icon.order == 1 ? 2 : 1};`">
-                <slot />
-            </span>
-        </template>
+        <div
+            v-else
+            class="h-full flex items-center gap-x-2 justify-center"
+        >
+            <slot />
+        </div>
     </button>
 </template>
-
-<style scoped>
-    .lds-dual-ring {
-        display: inline-block;
-    }
-    .lds-dual-ring:after {
-        content: ' ';
-        display: block;
-        width: 32px;
-        height: 32px;
-        border-radius: 50%;
-        border: 3px solid #fff;
-        border-color: #fff transparent #fff transparent;
-        animation: lds-dual-ring 1.2s linear infinite;
-    }
-    @keyframes lds-dual-ring {
-        0% {
-            transform: rotate(0deg);
-        }
-        100% {
-            transform: rotate(360deg);
-        }
-    }
-</style>
