@@ -30,7 +30,7 @@
         },
     ];
 
-    const selectedLang = computed(() => {
+    const selectedLang = computed<I18nLocale>(() => {
         let lang = languages.find((lang) => lang.code === locale.value);
         return lang ? lang : languages[1];
     });
@@ -128,7 +128,10 @@
                             <span class="text-xs md:text-sm whitespace-nowrap">{{ selectedLang.name }}</span>
                         </button>
                     </template>
-                    <ul>
+                    <ul
+                        tabindex="0"
+                        class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+                    >
                         <li
                             v-for="(lang, index) in languages"
                             :key="index"
@@ -155,22 +158,31 @@
                 <!-- user profile dropdown menu -->
                 <DropdownMenu :position="`${dir === 'rtl' ? 'left' : 'right'}-1/2`">
                     <template #control>
-                        <button
-                            type="button"
-                            class="w-8 h-8 flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+                        <label
+                            tabindex="0"
+                            class="btn btn-ghost btn-circle avatar"
                         >
-                            <img
-                                class="w-8 h-8 rounded-full"
-                                src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80"
-                                alt="user photo"
-                            />
-                        </button>
+                            <div class="w-10 rounded-full">
+                                <img
+                                    src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80" />
+                            </div>
+                        </label>
+
                     </template>
-                    <div class="px-4 pt-3 mb-2">
-                        <span class="block text-sm text-gray-900 dark:text-white">Bonnie Green</span>
-                        <span class="block text-sm text-gray-500 truncate dark:text-gray-400">name@flowbite.com</span>
-                    </div>
-                    <ul class="py-2">
+
+                    <ul
+                        tabindex="0"
+                        class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+                    >
+                        <li class="pt-3 mb-4">
+                            <span
+                                class="block hover:bg-transparent cursor-default text-sm text-gray-900 dark:text-white"
+                            >Bonnie
+                                Green</span>
+                            <span
+                                class="block hover:bg-transparent cursor-default text-sm text-gray-500 truncate dark:text-gray-400"
+                            >name@flowbite.com</span>
+                        </li>
                         <li>
                             <RouterLink
                                 :to="{ name: 'dashboard' }"

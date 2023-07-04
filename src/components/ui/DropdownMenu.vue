@@ -1,34 +1,23 @@
 <script setup lang="ts">
     import { ref } from 'vue';
-    import type { PropType } from 'vue';
     import { RouterLink } from 'vue-router';
-    import { onClickOutside } from '@vueuse/core';
     import type { DropdownMenuItem } from '@/types/ui-components';
 
-    defineProps({
-        menuItems: {
-            type: Array as PropType<DropdownMenuItem[]>,
-            default: () => [],
-        },
-        minWidth: {
-            type: String,
-            default: 'min-width[160px]',
-        },
-        position: {
-            type: String,
-            default: 'right-1/2',
-        },
+    interface MenuProps {
+        menuItems: DropdownMenuItem[];
+        minWidth: string;
+        position: string;
+    }
+
+    withDefaults(defineProps<MenuProps>(), {
+        menuItems: () => [],
+        minWidth: 'min-width[160px]',
+        position: 'right-1/2',
     });
 
     const isMenuOpen = ref<boolean>(false);
     const menuControl = ref<HTMLElement | null>(null);
     const menu = ref<HTMLElement | null>(null);
-
-    const updateMenuStatus = (status: boolean) => {
-        isMenuOpen.value = status;
-    };
-
-    onClickOutside(menu, () => updateMenuStatus(false));
 </script>
 
 <template>
@@ -36,8 +25,9 @@
         ref="menuControl"
         class="relative"
     >
-        <div @click="updateMenuStatus(true)">
+        <div class="dropdown dropdown-end">
             <slot name="control" />
+            <slot />
         </div>
 
         <!-- Dropdown -->
@@ -48,10 +38,6 @@
                 class="absolute z-50 my-2 py-2 font-medium list-none bg-white divide-y divide-gray-100 rounded-lg shadow-xl dark:bg-gray-700"
                 :class="(minWidth, position)"
             >
-                <!-- :style="`left: ${menuDir};`" -->
-                <div>
-                    <slot />
-                </div>
                 <ul v-if="menuItems && menuItems.length">
                     <li
                         v-for="(item, index) in menuItems"

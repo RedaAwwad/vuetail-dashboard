@@ -9,7 +9,7 @@
 <template>
     <div class="flex">
         <Sidebar />
-        <PerfectScrollbar class="w-full h-screen flex flex-col justify-between">
+        <div class="w-full h-screen flex flex-col justify-between overflow-y-auto">
             <div>
                 <TopHeader />
 
@@ -21,6 +21,6 @@
 
                 <Footer />
             </div>
-        </PerfectScrollbar>
+        </div>
     </div>
 </template>
