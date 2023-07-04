@@ -16,7 +16,13 @@ app.use(router);
 // plugins
 app.use(createPinia());
 app.provide('icons', icons);
-app.use(perfectScrollbar);
+app.use(perfectScrollbar, {
+    watchOptions: true,
+    options: {
+        suppressScrollX: true,
+        wheelSpeed: 1000
+    }
+});
 app.use(i18n);
 
 app.mount('#app');
