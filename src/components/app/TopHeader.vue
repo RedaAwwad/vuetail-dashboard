@@ -128,31 +128,27 @@
                             <span class="text-xs md:text-sm whitespace-nowrap">{{ selectedLang.name }}</span>
                         </button>
                     </template>
-                    <ul
-                        tabindex="0"
-                        class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+
+                    <li
+                        v-for="(lang, index) in languages"
+                        :key="index"
                     >
-                        <li
-                            v-for="(lang, index) in languages"
-                            :key="index"
+                        <button
+                            @click="updateAppLanguage(lang)"
+                            class="w-full flex items-center gap-x-2 px-4 py-2 whitespace-nowrap text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white"
+                            :class="{
+                                'bg-gray-100 text-gray-400 dark:bg-gray-600 dark:text-white':
+                                    lang.code === locale,
+                            }"
                         >
-                            <button
-                                @click="updateAppLanguage(lang)"
-                                class="w-full flex items-center gap-x-2 px-4 py-2 whitespace-nowrap text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white"
-                                :class="{
-                                    'bg-gray-100 text-gray-400 dark:bg-gray-600 dark:text-white':
-                                        lang.code === locale,
-                                }"
-                            >
-                                <CIcon
-                                    :icon="lang.flag"
-                                    width="1.2rem"
-                                    height="1.2rem"
-                                />
-                                <span class="text-xs md:text-sm whitespace-nowrap">{{ lang.name }}</span>
-                            </button>
-                        </li>
-                    </ul>
+                            <CIcon
+                                :icon="lang.flag"
+                                width="1.2rem"
+                                height="1.2rem"
+                            />
+                            <span class="text-xs md:text-sm whitespace-nowrap">{{ lang.name }}</span>
+                        </button>
+                    </li>
                 </DropdownMenu>
 
                 <!-- user profile dropdown menu -->
@@ -170,41 +166,35 @@
 
                     </template>
 
-                    <ul
-                        tabindex="0"
-                        class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
-                    >
-                        <li class="pt-3 mb-4">
-                            <span
-                                class="block hover:bg-transparent cursor-default text-sm text-gray-900 dark:text-white"
-                            >Bonnie
-                                Green</span>
-                            <span
-                                class="block hover:bg-transparent cursor-default text-sm text-gray-500 truncate dark:text-gray-400"
-                            >name@flowbite.com</span>
-                        </li>
-                        <li>
-                            <RouterLink
-                                :to="{ name: 'dashboard' }"
-                                title="Go to the Dashboard"
-                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-                            >
-                                Dashboard
-                            </RouterLink>
-                        </li>
-                        <li>
-                            <a
-                                href="#"
-                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-                            >Settings</a>
-                        </li>
-                        <li>
-                            <a
-                                href="#"
-                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-                            >Sign out</a>
-                        </li>
-                    </ul>
+                    <li class="pt-3 mb-4">
+                        <span
+                            class="block hover:bg-transparent cursor-default text-sm text-gray-900 dark:text-white">Bonnie
+                            Green</span>
+                        <span
+                            class="block hover:bg-transparent cursor-default text-sm text-gray-500 truncate dark:text-gray-400"
+                        >name@flowbite.com</span>
+                    </li>
+                    <li>
+                        <RouterLink
+                            :to="{ name: 'dashboard' }"
+                            title="Go to the Dashboard"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                        >
+                            Dashboard
+                        </RouterLink>
+                    </li>
+                    <li>
+                        <a
+                            href="#"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                        >Settings</a>
+                    </li>
+                    <li>
+                        <a
+                            href="#"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                        >Sign out</a>
+                    </li>
                 </DropdownMenu>
             </div>
         </div>

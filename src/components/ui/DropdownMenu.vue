@@ -27,34 +27,35 @@
     >
         <div class="dropdown dropdown-end">
             <slot name="control" />
-            <slot />
-        </div>
 
-        <!-- Dropdown -->
-        <Transition name="fade">
-            <div
-                v-show="isMenuOpen"
-                ref="menu"
-                class="absolute z-50 my-2 py-2 font-medium list-none bg-white divide-y divide-gray-100 rounded-lg shadow-xl dark:bg-gray-700"
-                :class="(minWidth, position)"
+            <ul
+                v-if="$slots.default"
+                tabindex="0"
+                class="menu menu-sm dropdown-content rtl:right-auto rtl:left-0 mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
             >
-                <ul v-if="menuItems && menuItems.length">
-                    <li
-                        v-for="(item, index) in menuItems"
-                        :key="index"
+                <slot />
+            </ul>
+
+            <ul
+                v-else
+                tabindex="0"
+                class="menu menu-sm dropdown-content rtl:right-auto rtl:left-0 mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+            >
+                <li
+                    v-for="(item, index) in menuItems"
+                    :key="index"
+                >
+                    <RouterLink
+                        :to="item.to"
+                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white"
                     >
-                        <RouterLink
-                            :to="item.to"
-                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white"
-                        >
-                            <div class="inline-flex items-center">
-                                <span>{{ item.label }}</span>
-                            </div>
-                            {{ item.id }}
-                        </RouterLink>
-                    </li>
-                </ul>
-            </div>
-        </Transition>
+                        <div class="inline-flex items-center">
+                            <span>{{ item.label }}</span>
+                        </div>
+                        {{ item.id }}
+                    </RouterLink>
+                </li>
+            </ul>
+        </div>
     </div>
 </template>

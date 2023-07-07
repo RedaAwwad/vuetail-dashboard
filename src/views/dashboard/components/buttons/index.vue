@@ -6,8 +6,8 @@
 <template>
     <div class="px-4 pt-4">
         <h1 class="mb-6 flex gap-x-2 text-xl sm:text-2xl">
-            <span class="first-letter:text-primary text-black font-semibold">Button</span>
-            <span class="first-letter:text-primary text-black font-semibold">Component</span>
+            <span class="first-letter:text-primary text-black dark:text-white font-semibold">Button</span>
+            <span class="first-letter:text-primary text-black dark:text-white font-semibold">Component</span>
         </h1>
 
         <div class="mockup-code mb-6">

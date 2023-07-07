@@ -20,6 +20,24 @@
             children: [],
         },
         {
+            path: '/dashboard/products',
+            name: 'products.home',
+            label: t('products.label'),
+            icon: 'cilCouch',
+            count: 0,
+            active: false,
+            children: []
+        },
+        {
+            path: '/dashboard/orders',
+            name: 'orders.home',
+            label: t('orders.label'),
+            icon: 'cilCart',
+            count: 0,
+            active: false,
+            children: []
+        },
+        {
             path: '/dashboard/components',
             name: 'components.buttons',
             label: t('components'),

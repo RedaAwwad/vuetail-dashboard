@@ -8,7 +8,14 @@
     "components": "Components",
     "inbox": "Inbox",
     "users": "Users",
-    "products": "Products",
+    "products": {
+        "label": "Products",
+        "": ""
+    },
+    "orders": {
+        "label": "Orders",
+        "": ""
+    },
     "bookings": "Bookings",
     "logout": "Logout",
     "about": "About",

@@ -25,6 +25,7 @@ import {
     cilHome,
     cifSa,
     cifUs,
+    cilCouch,
 } from '@coreui/icons';
 
 export const iconsSet = {
@@ -53,4 +54,5 @@ export const iconsSet = {
     cilHome,
     cifSa,
     cifUs,
+    cilCouch,
 };
