@@ -1,5 +1,5 @@
 <script setup lang="ts">
-    import { RouterLink } from 'vue-router';
+    import { RouterLink, type LocationAsRelativeRaw } from 'vue-router';
 
     type Variants = 'none' | 'primary' | 'secondary' | 'neutral' | 'accent' | 'ghost' | 'link';
     type Sizes = 'base' | 'sm' | 'md' | 'lg';
@@ -12,7 +12,7 @@
         rounded?: boolean;
         outline?: boolean;
         lodading?: boolean;
-        to?: string;
+        to?: string | LocationAsRelativeRaw;
         exact?: boolean;
         href?: string;
         target?: string;
