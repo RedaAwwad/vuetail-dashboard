@@ -24,7 +24,10 @@ module.exports = {
       }
     },
   },
-  plugins: [require("daisyui")],
+  plugins: [
+    require("daisyui"),
+    require('tailwindcss-dir')(),
+  ],
   daisyui: {
     themes: ['light', 'dark', 'night', 'business'], // true: all themes | false: only light + dark | array: specific themes like this ["light", "dark", "cupcake"]
     darkTheme: "night", // name of one of the included themes for dark mode
