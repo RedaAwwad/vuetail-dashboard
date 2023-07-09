@@ -10,15 +10,17 @@
     <div class="flex">
         <Sidebar />
         <div class="w-full h-screen flex flex-col justify-between overflow-y-auto">
-            <TopHeader />
+            <div>
+                <TopHeader />
 
-            <main class="h-full">
-                <Container>
-                    <RouterView />
-                </Container>
-            </main>
+                <main class="h-full">
+                    <Container>
+                        <RouterView />
+                    </Container>
+                </main>
 
-            <Footer />
+                <Footer />
+            </div>
         </div>
     </div>
 </template>
