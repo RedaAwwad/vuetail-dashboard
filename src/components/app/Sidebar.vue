@@ -38,6 +38,24 @@
             children: []
         },
         {
+            path: '/dashboard/users',
+            name: 'dashboard.users',
+            label: t('users'),
+            icon: 'cilUser',
+            count: 0,
+            active: false,
+            children: [],
+        },
+        {
+            path: '/dashboard/bookings',
+            name: 'about',
+            label: t('bookings'),
+            icon: 'cilCalendar',
+            count: 0,
+            active: false,
+            children: [],
+        },
+        {
             path: '/dashboard/components',
             name: 'components.buttons',
             label: t('components'),
@@ -85,44 +103,6 @@
             active: false,
             children: [],
         },
-        {
-            path: '/dashboard/users',
-            name: 'dashboard.users',
-            label: t('users'),
-            icon: 'cilUser',
-            count: 0,
-            active: false,
-            children: [
-                {
-                    path: '/components/buttons',
-                    name: 'components.buttons',
-                    label: 'Create User',
-                },
-                {
-                    path: '/components/forms',
-                    name: 'components.forms',
-                    label: 'Edit User',
-                },
-            ],
-        },
-        {
-            path: '/dashboard/products',
-            name: 'about',
-            label: t('products'),
-            icon: 'cilCart',
-            count: 0,
-            active: false,
-            children: [],
-        },
-        {
-            path: '/dashboard/bookings',
-            name: 'about',
-            label: t('bookings'),
-            icon: 'cilCalendar',
-            count: 0,
-            active: false,
-            children: [],
-        },
     ]);
 
     const closeMobileSidebar = () => layoutStore.updateMobileSidebarStatus(false);
@@ -163,10 +143,9 @@
         class="fixed inset-0 z-40 bg-black bg-opacity-20 transition-opacity duration-300"
     ></div>
     <aside
-        class="w-[275px] lg:w-[350px] h-screen flex flex-col justify-between fixed lg:relative left-0 z-50 transition-transform border-r-[0.5px] border-gray-200 dark:border-gray-900 bg-white dark:bg-gray-800"
+        class="w-[275px] lg:w-[350px] h-screen flex flex-col justify-between fixed lg:relative left-0 z-50 transition-transform bg-white dark:bg-gray-800"
         :class="[layoutStore.isMobileSidebarActive ? 'translate-x-0' : '-translate-x-full lg:translate-x-0']"
     >
-        <!-- bg-white dark:bg-gray-800 -->
         <div class="h-[75px] flex items-center p-4 border-b-[0.5px] border-gray-300 dark:border-gray-600">
             <RouterLink
                 :to="{ name: 'dashboard' }"
