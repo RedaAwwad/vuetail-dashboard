@@ -1,11 +1,9 @@
 <script setup lang="ts">
     import { RouterLink } from 'vue-router';
+    import type { IBreadcrumb } from '@/types';
 
     interface BreadcrumbProps {
-        routes: {
-            name: string;
-            to?: string | null;
-        }[];
+        routes: IBreadcrumb[];
     }
 
     defineProps<BreadcrumbProps>();
