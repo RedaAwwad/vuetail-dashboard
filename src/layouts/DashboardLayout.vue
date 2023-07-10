@@ -12,9 +12,13 @@
         <div class="w-full h-screen flex flex-col justify-between overflow-y-auto">
             <TopHeader />
 
-            <main class="h-full">
+            <main class="h-full overflow-x-hidden">
                 <Container>
-                    <RouterView />
+                    <RouterView v-slot="{ Component }">
+                        <Transition name="route">
+                            <component :is="Component"></component>
+                        </Transition>
+                    </RouterView>
                 </Container>
             </main>
 

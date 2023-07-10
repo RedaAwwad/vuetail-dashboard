@@ -4,9 +4,13 @@
 </script>
 
 <template>
-    <main class="min-h-screen">
+    <main class="min-h-screen overflow-x-hidden">
         <Container>
-            <RouterView />
+            <RouterView v-slot="{ Component }">
+                <Transition name="route">
+                    <component :is="Component"></component>
+                </Transition>
+            </RouterView>
         </Container>
     </main>
 </template>
