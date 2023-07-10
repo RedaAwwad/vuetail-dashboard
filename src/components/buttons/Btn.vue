@@ -11,7 +11,7 @@
         title?: string;
         rounded?: boolean;
         outline?: boolean;
-        lodading?: boolean;
+        loading?: boolean;
         to?: string | LocationAsRelativeRaw;
         exact?: boolean;
         href?: string;
@@ -54,7 +54,7 @@
         v-if="to"
         :to="to"
         :exact="exact"
-        :disabled="lodading"
+        :disabled="loading"
         :title="title"
         :class="[
             {
@@ -67,7 +67,7 @@
         ]"
     >
         <div
-            v-if="lodading"
+            v-if="loading"
             class="px-3 h-full flex items-center justify-center"
         >
             <span class="loading loading-spinner loading-md"></span>
@@ -83,7 +83,7 @@
     <a
         v-else-if="href"
         :href="href"
-        :disabled="lodading"
+        :disabled="loading"
         :target="target"
         :title="title"
         :class="[
@@ -97,7 +97,7 @@
         ]"
     >
         <div
-            v-if="lodading"
+            v-if="loading"
             class="px-3 h-full flex items-center justify-center"
         >
             <span class="loading loading-spinner loading-md"></span>
@@ -113,7 +113,7 @@
     <button
         v-else
         @click="onClickButton"
-        :disabled="lodading"
+        :disabled="loading"
         :title="title"
         :class="[
             {
@@ -126,7 +126,7 @@
         ]"
     >
         <div
-            v-if="lodading"
+            v-if="loading"
             class="px-3 h-full flex items-center justify-center"
         >
             <span class="loading loading-spinner loading-md"></span>
