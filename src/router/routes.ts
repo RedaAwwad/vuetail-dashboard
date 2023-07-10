@@ -61,7 +61,7 @@ export const routes = [
         component: DashboardLayout,
         children: [
             {
-                path: '/',
+                path: '/dashboard',
                 name: 'dashboard',
                 component: DashboardIndexPage,
             },

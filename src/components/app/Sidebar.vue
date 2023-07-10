@@ -150,6 +150,7 @@
             <RouterLink
                 :to="{ name: 'dashboard' }"
                 title="Go to the Dashboard"
+                exact
             >
                 <img
                     width="125"
@@ -169,8 +170,8 @@
                 >
                     <RouterLink
                         exact
-                        :to="{ name: route.name }"
                         @click="openDropdownLinks(route)"
+                        :to="{ name: route.name }"
                         class="sidebar-link w-full flex items-center justify-between p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
                         :class="{ 'router-link-exact-active': route.children.length && route.active }"
                     >
@@ -217,7 +218,7 @@
                                 exact
                                 :to="{ name: subRoute.name }"
                                 @click="closeMobileSidebar()"
-                                class="sidebar-link w-full flex items-center justify-between p-2 ps-10 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                                class="sidebar-link sub-route w-full flex items-center justify-between p-2 ps-10 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
                             >
                                 <div class="flex items-center">
                                     <CIcon
