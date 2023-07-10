@@ -58,6 +58,8 @@ export const routes = [
     /* Start Dashboard Routes */
     {
         path: '/',
+        redirect: { name: 'dashboard' },
+        meta: { requiresAuth: true },
         component: DashboardLayout,
         children: [
             {
