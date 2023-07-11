@@ -41,11 +41,12 @@
 
     //----------------------- Slide Left & Slide Right Transition
   .slide-left-enter-active {
-    transition: all 0.3s ease-out;
+    transition: all 0.4s ease-out;
   }
   
   .slide-left-leave-active {
-    transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
+    transition: all 0.2s cubic-bezier(1, 0.5, 0.8, 1);
+    display: none;
   }
   
   .slide-left-enter-from,
@@ -55,11 +56,12 @@
   }
 
   .slide-right-enter-active {
-    transition: all 0.3s ease-out;
+    transition: all 0.4s ease-out;
   }
   
   .slide-right-leave-active {
-    transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
+    transition: all 0.2s cubic-bezier(1, 0.5, 0.8, 1);
+    display: none;
   }
   
   .slide-right-enter-from,

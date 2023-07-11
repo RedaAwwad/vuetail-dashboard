@@ -24,11 +24,8 @@
 
             <main class="h-full overflow-x-hidden">
                 <Container>
-                    <RouterView v-slot="{ Component, route }">
-                        <Transition
-                            :name="transitionName"
-                            mode="out-in"
-                        >
+                    <RouterView v-slot="{ Component }">
+                        <Transition :name="transitionName">
                             <component :is="Component" />
                         </Transition>
                     </RouterView>

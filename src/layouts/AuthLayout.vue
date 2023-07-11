@@ -6,7 +6,7 @@
 <template>
     <main class="min-h-screen overflow-x-hidden">
         <Container>
-            <RouterView v-slot="{ Component, route }">
+            <RouterView v-slot="{ Component }">
                 <Transition
                     name="scale"
                     mode="out-in"
