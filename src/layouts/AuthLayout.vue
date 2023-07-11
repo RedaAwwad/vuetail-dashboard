@@ -6,9 +6,12 @@
 <template>
     <main class="min-h-screen overflow-x-hidden">
         <Container>
-            <RouterView v-slot="{ Component }">
-                <Transition name="route">
-                    <component :is="Component"></component>
+            <RouterView v-slot="{ Component, route }">
+                <Transition
+                    name="scale"
+                    mode="out-in"
+                >
+                    <component :is="Component" />
                 </Transition>
             </RouterView>
         </Container>

@@ -1,4 +1,4 @@
-// fade animation
+//------------------------- Fade Transition
 .fade-enter-active,
 .fade-leave-active {
     transition: opacity 0.3s ease;
@@ -9,7 +9,7 @@
     opacity: 0;
 }
 
-// route animation
+//------------------------- Route Transition
 .route-enter-from {
     opacity: 0;
     transform: translateX(40px);
@@ -24,13 +24,13 @@
     transform: translateX(-40px);
 }
 
-// slide fade animation
+//-------------------------- Slide Fade Transition
 .slide-fade-enter-active {
     transition: all 0.3s ease-out;
   }
   
   .slide-fade-leave-active {
-    transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+    transition: all 0.5s cubic-bezier(1, 0.5, 0.8, 1);
   }
   
   .slide-fade-enter-from,
@@ -38,3 +38,44 @@
     transform: translateX(20px);
     opacity: 0;
   }
+
+    //----------------------- Slide Left & Slide Right Transition
+  .slide-left-enter-active {
+    transition: all 0.3s ease-out;
+  }
+  
+  .slide-left-leave-active {
+    transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
+  }
+  
+  .slide-left-enter-from,
+  .slide-left-leave-to {
+    transform: translateX(20px);
+    opacity: 0;
+  }
+
+  .slide-right-enter-active {
+    transition: all 0.3s ease-out;
+  }
+  
+  .slide-right-leave-active {
+    transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
+  }
+  
+  .slide-right-enter-from,
+  .slide-right-leave-to {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+
+  //---------------------------- Scale Transition
+.scale-enter-active,
+.scale-leave-active {
+    transition: all 0.3s ease;
+}
+
+.scale-enter-from,
+.scale-leave-to {
+    opacity: 0;
+    transform: scale(0.9);
+}
