@@ -1,6 +1,9 @@
 <script setup lang="ts">
     import { Form } from 'vee-validate';
+    import { useI18n } from 'vue-i18n';
     import Btn from '@/components/buttons/Btn.vue';
+
+    const { t } = useI18n();
 
     defineProps({
         submitting: {
@@ -19,9 +22,16 @@
 </script>
 
 <template>
-    <Form @submit="submitForm" :validation-schema="validationSchema">
+    <Form
+        @submit="submitForm"
+        :validation-schema="validationSchema"
+    >
         <slot />
 
-        <Btn block lg :is-loading="submitting"> Submit </Btn>
+        <Btn
+            block
+            size="md"
+            :loading="submitting"
+        > {{ t('submit') }} </Btn>
     </Form>
 </template>
