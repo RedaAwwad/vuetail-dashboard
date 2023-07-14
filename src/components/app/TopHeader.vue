@@ -7,7 +7,6 @@
     import { useDirection } from '@/composables/page-direction';
 
     import BtnIcon from '@/components/buttons/BtnIcon.vue';
-    import Breadcrumb from '@/components/helpers/Breadcrumb.vue';
     import DropdownMenu from '@/components/ui/DropdownMenu.vue';
     import CIcon from '@/components/icons/CoreUiIcon.vue';
 
@@ -201,7 +200,6 @@
     </nav>
     <nav class="lg:hidden bg-white border-gray-200 dark:bg-gray-900">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto px-4 py-2">
-            <Breadcrumb />
             <DropdownMenu min-width="min-width[200px]">
                 <template #control>
                     <BtnIcon

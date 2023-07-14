@@ -3,9 +3,9 @@
     import type { DropdownMenuItem } from '@/types/ui-components';
 
     interface MenuProps {
-        menuItems: DropdownMenuItem[];
-        minWidth: string;
-        position: string;
+        menuItems?: DropdownMenuItem[];
+        minWidth?: string;
+        position?: string;
     }
 
     withDefaults(defineProps<MenuProps>(), {
