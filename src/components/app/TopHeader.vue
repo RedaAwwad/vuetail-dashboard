@@ -1,16 +1,17 @@
 <script setup lang="ts">
     import { computed } from 'vue';
     import { RouterLink } from 'vue-router';
+    import { useAuthStore } from '@/stores/auth';
     import { useLayoutStore } from '@/stores/layout';
     import { useI18n } from 'vue-i18n';
     import type { I18nLocale } from '@/types';
     import { useDirection } from '@/composables/page-direction';
 
     import BtnIcon from '@/components/buttons/BtnIcon.vue';
-    import Breadcrumb from '@/components/helpers/Breadcrumb.vue';
     import DropdownMenu from '@/components/ui/DropdownMenu.vue';
     import CIcon from '@/components/icons/CoreUiIcon.vue';
 
+    const { user, logout } = useAuthStore();
     const { updateMobileSidebarStatus } = useLayoutStore();
     const { dir } = useDirection();
     const { locale, t } = useI18n();
@@ -168,11 +169,17 @@
 
                     <li class="pt-3 mb-4">
                         <span
-                            class="block hover:bg-transparent cursor-default text-sm text-gray-900 dark:text-white">Bonnie
-                            Green</span>
+                            v-if="user && user.name"
+                            class="block whitespace-pre-wrap hover:bg-transparent cursor-default text-sm text-gray-900 dark:text-white"
+                        >
+                            {{ user.name }}
+                        </span>
                         <span
-                            class="block hover:bg-transparent cursor-default text-sm text-gray-500 truncate dark:text-gray-400"
-                        >name@flowbite.com</span>
+                            v-if="user && user.email"
+                            class="block break-all hover:bg-transparent cursor-default text-sm text-gray-500  dark:text-gray-400"
+                        >
+                            {{ user.email }}
+                        </span>
                     </li>
                     <li>
                         <RouterLink
@@ -191,6 +198,7 @@
                     </li>
                     <li>
                         <a
+                            @click="logout"
                             href="#"
                             class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
                         >Sign out</a>
@@ -201,7 +209,6 @@
     </nav>
     <nav class="lg:hidden bg-white border-gray-200 dark:bg-gray-900">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto px-4 py-2">
-            <Breadcrumb />
             <DropdownMenu min-width="min-width[200px]">
                 <template #control>
                     <BtnIcon
