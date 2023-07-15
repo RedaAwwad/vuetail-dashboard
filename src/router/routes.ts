@@ -34,6 +34,7 @@ export const routes = [
     {
         path: '/auth',
         name: 'auth',
+        meta: { guest: true },
         component: AuthLayout,
         children: [
             {

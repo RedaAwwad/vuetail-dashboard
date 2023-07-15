@@ -10,12 +10,17 @@ const router = createRouter({
 // Routes Guards
 router.beforeEach((to, from, next) => {
     const { isAuthenticated } = useAuthStore();
+    console.log({ authRoute: isAuthenticated });
+
 
     if (to.meta.requiresAuth && to.name !== 'auth.login' && !isAuthenticated) {
         return next({ name: 'auth.login' });
     }
-
-    next();
+    else if (to.meta.guest && to.name !== 'dashboard' && isAuthenticated) {
+        return next({ name: 'dashboard' });
+    } else {
+        return next();
+    }
 });
 
 export default router;
