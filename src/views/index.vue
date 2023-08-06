@@ -1,5 +1,10 @@
 <script setup lang="ts">
-    import { RouterView } from 'vue-router';
+    import { onMounted } from 'vue';
+    import { RouterView, useRouter } from 'vue-router';
+
+    onMounted(() => {
+        useRouter().replace({ name: 'dashboard' });
+    });
 </script>
 
 <template>
