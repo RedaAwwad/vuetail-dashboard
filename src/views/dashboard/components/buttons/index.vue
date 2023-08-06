@@ -1,14 +1,38 @@
 <script setup lang="ts">
+    import { useI18n } from 'vue-i18n';
+    import type { IBreadcrumb } from '@/types';
+    import Breadcrumb from '@/components/helpers/Breadcrumb.vue';
     import Btn from '@/components/buttons/Btn.vue';
     import CIcon from '@/components/icons/CoreUiIcon.vue';
+
+    const { t } = useI18n();
+
+    const routes: IBreadcrumb[] = [
+        {
+            name: t('dashboard'),
+            to: { name: 'dashboard' }
+        },
+        {
+            name: t('components'),
+            to: { name: 'components.buttons' }
+        },
+        {
+            name: 'button',
+            to: null
+        },
+    ];
 </script>
 
 <template>
-    <div class="px-4 pt-4">
-        <h1 class="mb-6 flex gap-x-2 text-xl sm:text-2xl">
-            <span class="first-letter:text-primary text-black dark:text-white font-semibold">Button</span>
-            <span class="first-letter:text-primary text-black dark:text-white font-semibold">Component</span>
-        </h1>
+    <div class="sm:p-4">
+        <div class="flex items-start justify-between mb-4">
+            <div>
+                <h1 class="text-lg font-semibold text-black">
+                    Button Component
+                </h1>
+                <Breadcrumb :routes="routes" />
+            </div>
+        </div>
 
         <div class="mockup-code mb-6">
             <pre data-prefix="$"><code>Btn</code></pre>
